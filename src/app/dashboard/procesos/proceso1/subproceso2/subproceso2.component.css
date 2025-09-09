@@ -1,0 +1,13 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+span, label, h2, h5 {
+  font-weight: bold;
+  color: #7b1fa2 !important;
+}
+.borde {
+  border-style: dotted;
+  border-width: 1px;
+  border-color: #7b1fa2;
+}

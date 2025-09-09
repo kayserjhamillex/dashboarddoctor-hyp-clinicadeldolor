@@ -1,0 +1,1771 @@
+<div class="row">
+  <div class="col-12 p-1">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title text-center">
+          Ver Historia Clinica: {{ticket.cliente.DocumentNumber}}
+        </h4>
+      </div>
+      <div class="card-body p-4">
+        <div class="row">
+          <div class="col-12 p-1">
+            <div class="row p-4">
+              <div class="col-12 col-md-4 col-lg-3 p-1">
+                <img [src]="ticket.cliente.Photo" alt="foto paciente">
+              </div>
+              <div class="col-12 col-md-8 col-lg-9 p-1">
+                <div class="row">
+                  <div class="col-12 p-1">
+                    <h4 class="text-center">
+                      <span>
+                        Nombres y Apellidos:
+                      </span>
+                      {{ticket.cliente.Name + ' ' + ticket.cliente.LastName}}
+                    </h4>
+                  </div>
+                  <div class="col-12 p-1">
+                    <div class="row">
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          DNI:
+                        </span>
+                        {{ticket.cliente.DocumentNumber}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Correo:
+                        </span>
+                        {{ticket.cliente.Email}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Celular:
+                        </span>
+                        {{ticket.cliente.Phone}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Género:
+                        </span>
+                        {{ticket.cliente.Gender}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Estado Civil:
+                        </span>
+                        {{ticket.cliente.CivilStatus}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Dedicacion:
+                        </span>
+                        {{ticket.cliente.Job}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Edad:
+                        </span>
+                        {{edad}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-8 p-1">
+                        <span>
+                          Dirección:
+                        </span>
+                        {{ticket.cliente.Direction}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 p-1">
+    <div class="card">
+      <div class="card-header-primary text-center">
+        <h4 class="card-title">
+          HISTORIA CLINICA - DOLOR
+        </h4>
+      </div>
+      <div class="card-body m-2">
+        <div class="row justify-content-center text-center">
+          <div class="col-12 col-lg-4 p-1">
+            <span>
+              Referido por:
+            </span>
+            {{ticket.Referred}}
+          </div>
+          <div class="col-12 col-lg-4 p-1">
+            <span>
+              Acompañante:
+            </span>
+            {{ticket.Companion}}
+          </div>
+          <div class="col-12 col-lg-4 p-1">
+            <span>
+              Parentezco:
+            </span>
+            {{ticket.Relationship}}
+          </div>
+        </div>
+        <hr>
+        <div class="row justify-content-center text-center">
+          <div class="col-4 col-md-3 col-lg-2">
+            <span>
+              PA:
+            </span>
+            {{ticket.BloodPressure}}
+          </div>
+          <div class="col-4 col-md-3 col-lg-2">
+            <span>
+              FC:
+            </span>
+            {{ticket.HeartRate}}
+          </div>
+          <div class="col-4 col-md-3 col-lg-2">
+            <span>
+              FR:
+            </span>
+            {{ticket.BreathingFrequency}}
+          </div>
+          <div class="col-4 col-md-3 col-lg-2">
+            <span>
+              T:
+            </span>
+            {{ticket.Temperature}}
+          </div>
+          <div class="col-4 col-md-3 col-lg-2">
+            <span>
+              SO2:
+            </span>
+            {{ticket.Saturation}}
+          </div>
+        </div>
+        <div id="accordion" role="tablist" aria-multiselectable="true" class="panel-group">
+          <label class="bmd-label-primary">
+            <h3><strong>INFORMACIÓN DE PACIENTE</strong></h3>
+          </label>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading2">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                  aria-expanded="false" aria-controls="collapse2">
+                  <strong>
+                    Antecedentes Heredofamiliares
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2">
+              <div class="card-body">
+                <!-- mostrar antecedentes 3 -->
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let item of clienteant3elegidos">
+                    <h3>
+                      {{item.antecedenteheredofamiliar.Name}}
+                    </h3>
+                  </div>
+                  <div class="col-12 com-md-6 col-lg-4 col xl 3 p-2">
+                    <div class="row">
+                      <div class="col-4 p-2">
+                        <h3>
+                          Otros:
+                        </h3>
+                      </div>
+                      <div class="col-8 p-2">
+                        <h3>
+                          {{cliente.Othershereditary}}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading3">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                  aria-expanded="false" aria-controls="collapse3">
+                  <strong>
+                    Antecedentes Personales No Patológicos
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3">
+              <div class="card-body">
+                <!-- mostrar antecedentes 2 -->
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let item of clienteant2elegidos">
+                    <h3>
+                      {{item.antecedentenopatologico.Name}}
+                    </h3>
+                  </div>
+                  <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+                    Medicamentos:
+                    <br>
+                    {{cliente.Medicine}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading4">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                  aria-expanded="false" aria-controls="collapse4">
+                  <strong>
+                    Anestesico/Quirúrgicos
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4">
+              <div class="card-body">
+                  <div class="form-row justify-content-between">
+                    <div class="col-6 col-md-4 col-lg-3 col-xl-3 p-3">
+                      <h5>
+                        G:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{cliente.G}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                      <h5>
+                        P:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{cliente.P}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                      <h5>
+                        A:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{cliente.A}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                      <h5>
+                        C:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{cliente.C}}
+                      </h6>
+                    </div>
+                    <div *ngIf="cliente.Gender === 'Femenino'" class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                      <h5>
+                        Fum:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{cliente.Fum}}
+                      </h6>
+                    </div>
+                    <div *ngIf="cliente.Gender === 'Femenino'" class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                      <h5>
+                        Papanicolau:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{cliente.Papsmear}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                      <h5>
+                        Grupo Sanguineo:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{cliente.Bloodtype}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                      <h5>
+                        Otros:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{cliente.Others}}
+                      </h6>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading5">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                  aria-expanded="false" aria-controls="collapse5">
+                  <strong>
+                    Antecentes Personales Patológicos
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading5">
+              <div class="card-body">
+                <!-- mostrar antecedentes 1 -->
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let item of clienteant1elegidos">
+                    <h3>
+                      {{item.antecedentepatologico.Name}}
+                    </h3>
+                  </div>
+                  <div class="col-12 com-md-6 col-lg-4 col xl 3 p-2">
+                    <div class="row">
+                      <div class="col-4 p-2">
+                        <h3>
+                          Otros:
+                        </h3>
+                      </div>
+                      <div class="col-8 p-2">
+                        <h3>
+                          {{cliente.Otherspathological}}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label class="bmd-label-primary">
+            <h3>
+              <strong>
+                SEMIOLOGÍA DEL DOLOR
+              </strong>
+            </h3>
+          </label>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading6">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse6"
+                  aria-expanded="false" aria-controls="collapse6">
+                  <strong>
+                    Motivo de Consulta
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse6" class="collapse" role="tabpanel" aria-labelledby="heading6">
+              <div class="card-body">
+                  <div class="form-row justify-content-between">
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                      <h5>
+                        Fecha de Inicio:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Startdate}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                      <h5>
+                        Frecuencia:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Frequency}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-3">
+                      <h5>
+                        Fecha que se hizo importante:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Datethatbecameimportant}}
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="form-row justify-content-between">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                      <h5>
+                        Por día:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Perday}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                      <h5>
+                        Por semana:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Perweek}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                      <h5>
+                        Por mes:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Permonth}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                      <h5>
+                        Por año:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Byyear}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-3">
+                      <h5>
+                        Motivo Consulta:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{reserva.DescriptionProblem}}
+                      </h6>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading6_1">
+              <h4 class="panel-title">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse6_1"
+                  aria-expanded="false" aria-controls="collapse6_1">
+                  <strong>
+                    Tipo Dolor
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse6_1" class="collapse" role="tabpanel" aria-labelledby="heading6_1">
+              <div class="card-body">
+                <!-- mostrar frecuencia -->
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let item of citaelegidosfrecuencia">
+                    <h3>
+                      {{item.frecuencia.Name}}
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading7">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="false"
+                  aria-controls="collapse7">
+                  <strong>
+                    Localización
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse7" class="collapse" role="tabpanel" aria-labelledby="heading7">
+              <div class="card-body">
+                <form>
+                  <div class="form-row justify-content-between">
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="One" value="true"
+                            [(ngModel)]="detallecita.One" name="One" disabled>
+                          Uno
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Two" value="true" name="Two"
+                            [(ngModel)]="detallecita.Two" disabled>
+                          Dos
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Three" value="true" name="Three"
+                            [(ngModel)]="detallecita.Three" disabled>
+                          Tres
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Multiple" value="true" name="Multiple"
+                            [(ngModel)]="detallecita.Multiple" disabled>
+                          Multiple
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Unilateral" value="true" name="Unilateral"
+                            [(ngModel)]="detallecita.Unilateral" disabled>
+                          Unilateral
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row justify-content-between">
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Bilateral" value="true" name="Bilateral"
+                            [(ngModel)]="detallecita.Bilateral" disabled>
+                          Bilateral
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Symmetrical" value="true"
+                            name="Symmetrical" [(ngModel)]="detallecita.Symmetrical" disabled>
+                          Simétrico
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Referred" value="true" name="Referred"
+                            [(ngModel)]="detallecita.Referred" disabled>
+                          Referido
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Irradiated" value="true" name="Irradiated"
+                            [(ngModel)]="detallecita.Irradiated" disabled>
+                          Irradiado
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading8">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false"
+                  aria-controls="collapse8">
+                  <strong>
+                    Intensidad
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse8" class="collapse" role="tabpanel" aria-labelledby="heading8">
+              <div class="card-body">
+                <form>
+                  <div class="form-row justify-content-center">
+                    <div class="col-md-2 mb-3 justify-content-center">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Worsened" value="true" name="Worsened"
+                            [(ngModel)]="detallecita.Worsened" disabled>
+                          Empeorado
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Parked" value="true" name="Parked"
+                            [(ngModel)]="detallecita.Parked" disabled>
+                          Estacionado
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                      <div class="form-check form-check-radio form-check-inline">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Decreasing" value="true" name="Decreasing"
+                            [(ngModel)]="detallecita.Decreasing" disabled>
+                          Disminuyendo
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading9">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false"
+                  aria-controls="collapse9">
+                  <strong>Escala Visual Analoga(EVA)</strong>
+                  <i class="material-icons">keyboard_arrow_down</i>
+                </a>
+              </h4>
+            </div>
+
+            <div id="collapse9" class="collapse" role="tabpanel" aria-labelledby="heading9">
+              <div class="card-body">
+                <form>
+                  <div class="form-row justify-content-between">
+                    <div class="col-md-6 mb-3 align-items-center text-center">
+                      <label for="rangeInputEVA1" class="bmd-label-static col">
+                        No hay dolor(0) - Insoportable(10)
+                      </label>
+                      <input type="range" id="Scale" [(ngModel)]="detallecita.Scale" name="Scale" min="0" max="10"
+                        [(value)]="detallecita.Scale" oninput="amount.value=Scale.value" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <h6>
+                        Fecha: {{detallecita.Datescale}}
+                      </h6>
+                      <br>
+                      Intensidad EVA: {{detallecita.Scale}}
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading11">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="false"
+                  aria-controls="collapse11">
+                  <strong>
+                    Otros Sintomas
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse11" class="collapse" role="tabpanel" aria-labelledby="heading11">
+              <div class="card-body">
+                <!-- mostrar duracion -->
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let item of citaelegidosduracion">
+                    <h3>
+                      {{item.duracion.Name}}
+                    </h3>
+                  </div>
+                  <div class="col-12 com-md-6 col-lg-4 col xl 3 p-2">
+                    <div class="row">
+                      <div class="col-4 p-2">
+                        <h3>
+                          Otros:
+                        </h3>
+                      </div>
+                      <div class="col-8 p-2">
+                        <h3>
+                          {{detallecita.Othersduration}}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading13">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse13" aria-expanded="false"
+                  aria-controls="collapse13">
+                  <strong>
+                    Tipos de  Dolor
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse13" class="collapse" role="tabpanel" aria-labelledby="heading13">
+              <div class="card-body">
+                <form>
+                  <div class="form-row justify-content-between">
+                    <div class="col-md-3 mb-3">
+                      <div class="form-check">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Oncological" value="true" name="Oncological"
+                          [(ngModel)]="detallecita.Oncological" disabled>
+                          Oncológico
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                      <div class="col-md-3 mb-3">
+                        <div class="form-check">
+                          <h6>
+                            Tipo Oncológico: {{detallecita.Oncologicaltype}}
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="form-check">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="AssociatedwithDiagnosis" value="true" name="AssociatedwithDiagnosis"
+                          [(ngModel)]="detallecita.AssociatedwithDiagnosis" disabled>
+                          Asociado al Diagnóstico
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="form-check">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="AssociatedwithTreatment" value="true" name="AssociatedwithTreatment"
+                          [(ngModel)]="detallecita.AssociatedwithTreatment" disabled>
+                          Asociado al Tratamiento
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Addictions" value="true" name="Addictions"
+                          [(ngModel)]="detallecita.Addictions" disabled>
+                          Adicciones
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <div class="form-check">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="AssociatedwithProgressiveCancer" value="true" name="AssociatedwithProgressiveCancer"
+                          [(ngModel)]="detallecita.AssociatedwithProgressiveCancer" disabled>
+                          Asociado al Cancer Progresivo
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Dying" value="true" name="Dying"
+                          [(ngModel)]="detallecita.Dying" disabled>
+                          Dying
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading14">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse14" aria-expanded="false"
+                  aria-controls="collapse14">
+                  <strong>
+                    Diagnóstico
+                  </strong>
+                  <i class="material-icons">
+                    keyboard_arrow_down
+                  </i>
+                </a>
+              </h4>
+            </div>
+            <div id="collapse14" class="collapse" role="tabpanel" aria-labelledby="heading14">
+              <div class="card-body">
+                  <div class="form-row justify-content-center">
+                    <div class="col-md-10 mb-3">
+                      <h5>
+                        Diagnóstico:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{reserva.Diagnosis}}
+                      </h6>
+                    </div>
+                    <div class="col-md-10 mb-3">
+                      <h5>
+                        Procedimiento:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{reserva.Reason}}
+                      </h6>
+                    </div>
+                    <div class="col-md-10 mb-3">
+                      <h5>
+                        Tratamiento:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Treatment}}
+                      </h6>
+                    </div>
+                    <div class="col-md-10 mb-3">
+                      <h5>
+                        Observaciones:
+                      </h5>
+                      <br>
+                      <h6>
+                        {{detallecita.Observations}}
+                      </h6>
+                    </div>
+                    <div class="col-md-10 mb-3">
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <label class="bmd-principal">
+                            EXAMENES DE LABORATORIO:
+                          </label>
+                        </div>
+                        <div *ngIf="reserva.Labstatus === 'asignado' || 'optener'" class="col-lg-4">
+                          <button type="button" class="btn btn-primary col" data-toggle="modal" data-target="#ModalAnalisis">
+                            Análisis
+                          </button>
+                        </div>
+                        <div *ngIf="reserva.Labstatus === 'procesando'" class="col-lg-4">
+                          <h3>
+                            Analisis en procesamiento
+                          </h3>
+                        </div>
+                        <div *ngIf="reserva.Labstatus === 'resultado'" class="col-lg-4">
+                          <button type="button" class="btn btn-primary col" data-toggle="modal" data-target="#ModalResutadosAnalisis">
+                            Resultados Análisis
+                          </button>
+                        </div>
+                        <div class="col-lg-4">
+                          <button type="submit" class="btn btn-primary col" data-toggle="modal" data-target="#ModalLaboratorio">
+                            Rx - Tm - RM
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-row justify-content-between">
+                    <div class="col-12 col-lg-4 p-3">
+                      <div class="form-check">
+                        <label class="form-check-label bmd-label-static">
+                          <input class="form-check-input" type="checkbox" id="Protocol" value="true" name="Protocol"
+                          [(ngModel)]="detallecita.Protocol">
+                          Requiere Protocolo
+                          <span class="form-check-sign">
+                            <span class="check"></span>
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-4 p-3">
+                      <h6>
+                        Tipo Protocolo: {{detallecita.Protocoltype}}
+                      </h6>
+                    </div>
+                    <div class="col-12 col-lg-4 p-3">
+                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalEntrevista">
+                        Entrevista
+                      </button>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="reserva.Type  === 'medicina del dolor'" class="panel panel-default">
+            <div class="panel-heading p-2 text-center" role="tab" id="heading15">
+              <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse15" aria-expanded="false"
+                  aria-controls="collapse15">
+                  <strong>Dermatomas</strong>
+                  <i class="material-icons">keyboard_arrow_down</i>
+                </a>
+              </h4>
+            </div>
+
+            <div id="collapse15" class="collapse" role="tabpanel" aria-labelledby="heading15">
+              <div class="card-body">
+                <form>
+                  <div class="form-row justify-content-center">
+                    <div class="mapaDermatomasFrente">
+                      <svg width="500" height="700" viewBox="0 0 211.66666 317.50001">
+                        <a xlink:title="C1" id="C1">
+                          <path [ngClass]="{'active': frontbody.DFC1 === true}"
+                            d="M 94.155203,38.698873 84.26951,24.714234 c 0,0 -1.808358,-10.850151 0.361672,-13.502411 2.170031,-2.6522589 6.751206,-6.1484191 14.707984,-6.7512052 7.956774,-0.6027862 13.743524,4.2195035 15.672444,8.3184492 1.92891,4.098947 1.80835,8.439007 -0.24112,11.81461 -2.04947,3.375601 -6.99232,14.105196 -6.99232,14.105196 0,0 -5.0634,1.928916 -6.51009,1.687801 -1.446685,-0.241112 -3.616715,0.48223 -7.112877,-1.687801 z"
+                            id="DFC1" />
+                        </a>
+                        <a xlink:title="C2" id="C2">
+                          <path [ngClass]="{'active': frontbody.DFC21 === true}"
+                            d="M 94.155201,38.698873 84.26951,24.714234 c 0,0 -10.126808,-5.304518 3.375605,11.573494 z"
+                            id="DFC21" />
+                          <path [ngClass]="{'active': frontbody.DFC22 === true}"
+                            d="m 105.65577,39.708391 9.64655,-16.229369 c 0,0 9.88185,-6.155968 -3.29395,13.431201 z"
+                            id="DFC22" />
+                        </a>
+                        <a xlink:title="C3" id="C3">
+                          <path [ngClass]="{'active': frontbody.DFC3 === true}"
+                            d="m 112.00837,36.910224 c 0,0 -1.69849,4.923139 -0.13125,8.901528 1.56724,3.978388 12.53795,8.921234 12.53795,8.921234 l -47.861223,-0.36167 c 0,0 11.573494,-4.82229 11.814609,-7.836223 0.241115,-3.013929 -0.723341,-10.247365 -0.723341,-10.247365 0,0 10.006248,4.46062 12.658505,4.581175 2.65226,0.120557 11.70475,-3.958679 11.70475,-3.958679 z"
+                            id="DFC3" />
+                        </a>
+                        <a xlink:title="C4" id="C4">
+                          <path [ngClass]="{'active': frontbody.DFC4 === true}"
+                            d="m 55.094658,62.689766 h 86.921772 c 0,0 -7.35399,-3.857834 -10.60904,-4.701733 -3.25504,-0.843902 -6.99232,-3.255047 -6.99232,-3.255047 l -47.861225,-0.36167 c 0,0 -10.36792,3.375602 -13.864079,4.098946 -3.496162,0.723342 -7.353993,2.652258 -7.595108,4.219504 z"
+                            id="DFC4" />
+                        </a>
+                        <a xlink:title="C5" id="C5">
+                          <path [ngClass]="{'active': frontbody.DFC51 === true}"
+                            d="m 60.037506,63.051435 -4.942848,-0.361669 c 0,0 -3.496159,3.496159 -4.219504,16.878011 -0.723341,13.381855 -3.616716,26.522593 -7.474548,33.514913 -3.857831,6.99232 -8.559564,26.52259 -8.559564,26.52259 0,0 22.785318,-41.592245 23.026433,-54.612425 0.241115,-13.020183 0.964457,-20.976961 2.170031,-21.94142 z"
+                            id="DFC51" />
+                          <path [ngClass]="{'active': frontbody.DFC52 === true}"
+                            d="m 142.01643,62.689766 -4.82229,0.241112 c 0,0 13.74352,50.875152 21.45919,61.484192 7.71566,10.60904 17.4808,22.90588 17.4808,22.90588 0,0 -8.07734,-13.38186 -9.40347,-18.80693 -1.32613,-5.42508 -6.87176,-13.2613 -8.19789,-14.82854 -1.32613,-1.56725 -3.01393,-5.90731 -3.61672,-11.09127 -0.60278,-5.18396 -6.7512,-8.680122 -5.54563,-18.806929 1.20557,-10.126808 0.8439,-14.828539 -7.35399,-21.097515 z"
+                            id="DFC52" />
+                        </a>
+                        <a xlink:title="C6" id="C6">
+                          <path [ngClass]="{'active': frontbody.DFC61 === true}"
+                            d="m 137.19414,62.930878 -3.97839,-0.120555 c 0,0 10.97071,48.222897 16.6369,58.349707 5.66619,10.1268 9.88569,19.04804 19.53027,28.93373 9.64458,9.8857 15.31077,17.60136 15.31077,17.60136 0,0 0.24111,-0.60279 1.44669,1.44669 1.20557,2.04947 10.48848,12.89962 2.5317,-1.20557 -7.95678,-14.1052 -3.01393,-9.8857 -2.04947,-9.52403 0.96445,0.36167 6.02786,2.65226 7.23343,1.6878 1.20557,-0.96445 -5.18396,-3.01393 -5.9073,-3.97839 -0.72335,-0.96445 -3.97839,-2.77281 -5.42508,-3.01393 -1.44669,-0.24111 -4.46062,-2.04947 -6.38953,-5.78674 -1.92892,-3.73728 -14.9491,-18.08359 -18.44526,-23.87034 -3.49616,-5.78674 -20.61529,-56.420789 -20.49473,-60.519732 z"
+                            id="DFC61" />
+                          <path [ngClass]="{'active': frontbody.DFC62 === true}"
+                            d="m 60.037506,63.051435 7.474548,-0.120557 c 0,0 -11.452937,50.513482 -17.721914,61.725312 -6.268976,11.21182 -19.168602,30.86265 -24.352562,37.01107 -5.183962,6.14842 -3.49616,4.46062 -3.49616,4.46062 0,0 -2.893374,2.5317 -3.616718,3.61671 -0.723343,1.08502 -0.8439,4.09895 -3.134488,4.46062 -2.290587,0.36167 -1.085015,-1.20557 -0.120557,-3.25504 0.964458,-2.04948 1.928916,-5.78675 3.134488,-7.95678 1.205573,-2.17003 2.772817,-5.90731 2.772817,-5.90731 0,0 -0.964458,-0.48223 -2.65226,1.20558 -1.687801,1.6878 -6.751205,1.68779 -8.197892,1.32612 -1.4466871,-0.36167 11.091266,-5.54563 13.140739,-8.31844 2.049473,-2.77282 9.52402,-7.35401 10.729594,-11.69406 1.205574,-4.34006 11.829657,-23.19407 14.346311,-28.69262 2.094189,-4.57552 9.885695,-16.757457 9.765138,-29.898194 -0.120557,-13.14074 1.928916,-17.963031 1.928916,-17.963031 z"
+                            id="DFC62" />
+                        </a>
+                        <a xlink:title="C7" id="C7">
+                          <path [ngClass]="{'active': frontbody.DFC71 === true}"
+                            d="m 42.195034,137.31469 -14.587425,29.0543 c 0,0 -3.616718,3.85783 -4.219504,6.14842 -0.602787,2.29059 -0.964458,7.47455 -3.013932,7.47455 -2.049473,0 -1.446686,-4.46062 -0.602786,-7.35399 0.843901,-2.89338 0.241115,-4.94285 0.241115,-4.94285 l 1.928916,-1.56724 c 0,0 19.168601,-26.5226 20.253616,-28.81319 z"
+                            id="DFC71" />
+                          <path [ngClass]="{'active': frontbody.DFC72 === true}"
+                            d="m 169.62404,150.45543 8.92123,18.80693 c 0,0 0.96446,0.36168 1.92892,2.41115 0.96446,2.04947 4.58117,6.51009 4.58117,6.51009 0,0 3.95985,3.81846 2.65226,-1.20557 -1.14103,-4.38408 -2.65225,-5.06341 -2.65225,-5.06341 l -0.36168,-4.2195 z"
+                            id="DFC72" />
+                        </a>
+                        <a xlink:title="C8" id="C8">
+                          <path [ngClass]="{'active': frontbody.DFC81 === true}"
+                            d="m 41.110019,139.60528 1.446686,10.60904 c 0,0 -5.304518,6.75121 -5.545633,13.02018 -0.241114,6.26898 0.602787,12.77907 -0.482229,13.86408 -1.085014,1.08502 -2.5317,-2.89337 -2.772815,-5.42507 -0.241115,-2.5317 -0.48223,-4.34006 -0.48223,-4.34006 0,0 -2.290587,1.32613 -3.013932,3.13449 -0.723341,1.80835 -1.808358,8.92123 -3.134487,9.76513 -1.32613,0.8439 -2.049473,-1.32613 -2.049473,-1.32613 0,0 2.531703,-12.53795 2.531703,-12.53795 z"
+                            id="DFC81" />
+                          <path [ngClass]="{'active': frontbody.DFC82 === true}"
+                            d="m 160.34113,146.83872 c 0,0 4.82229,5.54563 4.58117,9.52402 -0.24111,3.97839 -0.12055,3.85783 -0.12055,3.85783 0,0 4.09894,8.43901 3.97839,11.5735 -0.12056,3.13448 -0.24112,6.87176 0.72334,7.71566 0.96446,0.8439 2.29059,-3.01393 2.41114,-4.70173 0.12056,-1.6878 -0.36167,-4.58118 0.24112,-5.42508 0.60278,-0.8439 0.8439,-0.36167 0.8439,-0.36167 0,0 1.08502,0.60279 1.6878,3.01393 0.60279,2.41114 0.96446,8.43901 1.56725,8.80068 0.60278,0.36167 2.65225,1.20557 3.01393,-0.60279 0.36167,-1.80835 -0.8439,-7.11287 -0.8439,-7.11287 l 0.12055,-3.85784 -8.92123,-18.80693 z"
+                            id="DFC82" />
+                        </a>
+                        <a xlink:title="D1" id="D1">
+                          <path [ngClass]="{'active': frontbody.DFD101 === true}"
+                            d="m 67.512054,62.930878 65.703696,-0.120555 2.17003,8.921234 -69.802642,0.241115 z"
+                            id="DFD101" />
+                          <path [ngClass]="{'active': frontbody.DFD102 === true}"
+                            d="m 60.881405,90.538487 5.183962,6.630646 c 0,0 -1.928915,20.735847 -9.885693,31.827117 -7.956777,11.09126 -13.622969,21.21807 -13.622969,21.21807 l -1.446686,-10.60904 c 0,0 8.439006,-12.77906 10.126806,-16.99856 1.687804,-4.21951 9.64458,-32.068233 9.64458,-32.068233 z"
+                            id="DFD102" />
+                          <path [ngClass]="{'active': frontbody.DFD103 === true}"
+                            d="m 169.62404,150.45543 -9.28291,-3.61671 c 0,0 -11.21182,-12.29684 -12.77907,-16.6369 -1.56724,-4.34006 -12.53795,-28.33095 -12.89962,-30.621539 -0.36167,-2.290588 -1.6878,-4.701733 -1.6878,-4.701733 l 6.87176,-4.822291 c 0,0 6.63065,24.593673 10.00625,31.103773 3.3756,6.51009 15.793,27.36649 19.77139,29.2954 z"
+                            id="DFD103" />
+                        </a>
+                        <a xlink:title="D2" id="D2">
+                          <path [ngClass]="{'active': frontbody.DFD2 === true}"
+                            d="m 65.583138,71.972672 -4.701733,18.565815 5.183962,6.630648 c 0,0 3.134487,-10.850152 2.049473,-15.069655 -1.085013,-4.219504 -0.964459,-4.701733 -0.964459,-4.701733 l 67.753169,0.361672 c 0,0 -0.8439,2.17003 -1.08501,4.82229 -0.24112,2.65226 -0.8439,12.296839 -0.8439,12.296839 l 6.87176,-4.822291 -4.46062,-18.3247 z"
+                            id="DFD2" />
+                        </a>
+                        <a xlink:title="D3" id="D3">
+                          <path [ngClass]="{'active': frontbody.DFD3 === true}"
+                            d="m 67.150381,77.397747 67.753169,0.361672 -1.32613,6.630649 -65.342022,-0.120558 z"
+                            id="DFD3" />
+                        </a>
+                        <a xlink:title="D4" id="D4">
+                          <path [ngClass]="{'active': frontbody.DFD4 === true}"
+                            d="m 67.873726,88.850686 65.583134,0.241115 0.12056,-4.701733 -65.342022,-0.120558 z"
+                            id="DFD4" />
+                        </a>
+                        <a xlink:title="D5" id="D5">
+                          <path [ngClass]="{'active': frontbody.DFD5 === true}"
+                            d="m 67.873726,88.850686 65.583134,0.241115 -0.48222,5.786747 H 66.909269 Z" id="DFD5" />
+                        </a>
+                        <a xlink:title="D6" id="D6">
+                          <path [ngClass]="{'active': frontbody.DFD6 === true}"
+                            d="m 66.909269,94.878548 h 66.065371 c 0,0 -0.24112,3.134487 -0.72335,4.340061 -0.48223,1.205571 -0.8439,1.567241 -0.8439,1.567241 l -62.32809,0.12056 c 0,0 0.482227,1.44669 -0.843902,-2.290588 -1.326129,-3.737274 -1.326129,-3.737274 -1.326129,-3.737274 z"
+                            id="DFD6" />
+                        </a>
+                        <a xlink:title="D7" id="D7">
+                          <path [ngClass]="{'active': frontbody.DFD7 === true}"
+                            d="m 69.0793,100.90641 c 0,0 1.567243,3.13449 1.687801,4.58118 0.120557,1.44668 0.482226,2.5317 0.482226,2.5317 l 57.023573,0.24111 c 0,0 0,0 0.96446,-3.97839 l 2.17003,-3.49616 z"
+                            id="DFD7" />
+                        </a>
+                        <a xlink:title="D8" id="D8">
+                          <path [ngClass]="{'active': frontbody.DFD8 === true}"
+                            d="m 71.249325,108.01929 57.023575,0.24111 c 0,0 -0.90417,2.71254 -0.66306,3.67699 0.24112,0.96446 0.30139,2.10976 0.30139,2.10976 H 71.611 c 0,0 0.516957,-0.25404 0.06028,-3.25504 z"
+                            id="DFD8" />
+                        </a>
+                        <a xlink:title="D9" id="D9">
+                          <path [ngClass]="{'active': frontbody.DFD9 === true}"
+                            d="m 71.611,114.04715 c 0,0 0.542509,2.59198 -0.06028,3.97839 -0.602787,1.38641 -0.723344,1.92891 -0.723344,1.92891 l 58.048314,-0.12055 c 0,0 -0.78362,-2.41115 -0.8439,-3.43589 -0.0603,-1.02473 -0.12056,-2.35086 -0.12056,-2.35086 z"
+                            id="DFD9" />
+                        </a>
+                        <a xlink:title="D10" id="D10">
+                          <path [ngClass]="{'active': frontbody.DFD10 === true}"
+                            d="m 70.827375,119.95445 58.048315,-0.12055 c 0,0 0.42195,2.5317 1.32613,4.40033 0.90418,1.86864 2.65226,5.12369 2.65226,5.12369 l -66.48732,0.12055 c 0,0 1.742925,-3.47608 2.65226,-5.24423 1.085013,-2.10976 1.808355,-4.27979 1.808355,-4.27979 z"
+                            id="DFD10" />
+                        </a>
+                        <a xlink:title="D11" id="D11">
+                          <path [ngClass]="{'active': frontbody.DFD11 === true}"
+                            d="m 66.36676,129.47847 66.48732,-0.12055 c 0,0 0.66306,3.01393 1.6878,4.76201 1.02474,1.74808 2.89337,4.88257 2.89337,4.88257 l -74.685207,-0.18084 c 0,0 1.748081,-2.5317 2.411145,-4.88257 0.663065,-2.35086 1.205572,-4.46062 1.205572,-4.46062 z"
+                            id="DFD11" />
+                        </a>
+                        <a xlink:title="D12" id="D12">
+                          <path [ngClass]="{'active': frontbody.DFD12 === true}"
+                            d="m 137.43525,139.0025 c 0,0 0.60279,1.56724 0.78363,3.25504 0.18083,1.6878 0.24111,2.77282 0.24111,2.77282 0,0 -27.72816,3.79755 -32.12851,3.91811 -4.40033,0.12056 -32.369613,-1.44669 -36.227444,-2.8331 -3.857834,-1.3864 -9.041794,-2.29058 -9.041794,-2.29058 l 0.663065,-3.01393 1.024736,-1.9892 z"
+                            id="DFD12" />
+                        </a>
+                        <a xlink:title="L1" id="L1">
+                          <path [ngClass]="{'active': frontbody.DFL1 === true}"
+                            d="m 61.062242,143.82479 c 0,0 -0.602787,7.11287 -0.663064,8.61984 -0.06028,1.50696 -0.120558,4.34006 -0.120558,4.34006 0,0 8.499285,6.44981 13.803805,7.29371 5.304517,0.8439 12.899623,1.80836 16.09439,0.90418 3.194767,-0.90418 3.375604,-1.32613 3.375604,-1.32613 0,0 -1.024737,-6.20869 5.364797,-6.57037 6.389534,-0.36167 6.449814,6.2087 6.449814,6.2087 0,0 3.97839,2.59198 8.19789,3.13449 4.2195,0.54251 10.00625,0.48223 14.88882,-1.86864 4.88257,-2.35086 10.48848,-5.12368 10.48848,-5.12368 0,0 0.54251,-6.26898 0.42195,-8.80068 -0.12056,-2.5317 -0.90418,-5.60591 -0.90418,-5.60591 l -31.52572,3.85783 -15.853276,-0.48223 -19.048042,-1.92891 z"
+                            id="DFL1" />
+                        </a>
+                        <a xlink:title="L2" id="L2">
+                          <path [ngClass]="{'active': frontbody.DFL21 === true}"
+                            d="m 93.552419,163.65645 c 0,0 0.474848,1.63718 1.156822,2.06341 0.681974,0.42623 2.813145,1.36395 2.813145,1.36395 l -5.796785,25.06257 c 0,0 -13.724742,31.02985 -20.203501,27.19374 -6.47876,-3.8361 -7.245983,-4.85907 -7.245983,-4.85907 0,0 0,-7.75746 -0.681974,-11.59357 -0.681974,-3.8361 -3.239378,-16.70838 -3.239378,-27.53473 0,-10.82634 -0.07615,-18.56806 -0.07615,-18.56806 0,0 8.856568,6.46301 14.312366,7.31548 5.455798,0.85247 13.895236,1.70494 15.514925,1.02296 1.61969,-0.68197 3.446508,-1.46668 3.446508,-1.46668 z"
+                            id="DFL21" />
+                          <path [ngClass]="{'active': frontbody.DFL22 === true}"
+                            d="m 105.36703,163.29478 c 0,0 6.05059,3.70378 11.59164,3.53329 5.54104,-0.17049 12.0198,-2.30166 14.83295,-3.75086 2.81314,-1.4492 7.1506,-3.64026 7.1506,-3.64026 0,0 -1.26857,25.46345 -2.20629,30.15203 -0.93771,4.68857 -3.58036,21.82319 -3.49512,24.80683 0.0853,2.98364 0.1705,3.23938 0.1705,3.23938 0,0 -5.79679,6.05252 -10.9116,-0.51148 -5.11481,-6.56401 -17.56085,-25.8298 -17.56085,-25.8298 l -4.0066,-24.29535 c 0,0 4.09571,-0.84356 4.43477,-3.70378 z"
+                            id="DFL22" />
+                        </a>
+                        <a xlink:title="L3" id="L3">
+                          <path [ngClass]="{'active': frontbody.DFL31 === true}"
+                            d="m 64.276117,214.48105 c 0,0 0.937718,10.9116 -0.852466,14.9182 -1.790184,4.0066 -2.727899,3.75086 -3.068886,7.75746 -0.340987,4.00661 -0.255741,6.30827 -0.255741,6.30827 l 21.396957,15.60017 c 0,0 3.665614,-13.21326 3.068886,-18.7543 -0.596728,-5.54105 -1.193456,-9.80339 1.022961,-13.55425 2.21642,-3.75086 3.409874,-15.25918 3.495122,-20.2035 0.08525,-4.94432 2.642651,-14.40672 2.642651,-14.40672 0,0 -8.865672,18.75431 -12.531286,22.50517 -3.665614,3.75086 -5.285303,6.30826 -8.268943,4.51808 -2.98364,-1.79018 -6.649255,-4.68858 -6.649255,-4.68858 z"
+                            id="DFL31" />
+                          <path [ngClass]="{'active': frontbody.DFL32 === true}"
+                            d="m 104.93886,191.29391 c 0,0 1.4492,26.00029 5.62629,33.24627 4.1771,7.24598 1.19346,15.42968 1.19346,17.81659 0,2.38691 1.2787,14.15098 1.2787,14.15098 l 25.14782,-14.06573 c 0,0 -3.15413,-17.39036 -3.83611,-19.26579 -0.68197,-1.87543 -0.93771,-5.54104 -0.93771,-5.54104 0,0 -5.54105,4.34759 -8.69518,1.96067 -3.15413,-2.38691 -19.77727,-28.30195 -19.77727,-28.30195 z"
+                            id="DFL32" />
+                        </a>
+                        <a xlink:title="L4" id="L4">
+                          <path [ngClass]="{'active': frontbody.DFL41 === true}"
+                            d="m 81.495981,259.06515 -7.586969,-5.62629 c 0,0 -4.944317,23.44289 -4.091848,30.51837 0.852467,7.07549 3.750861,20.45925 3.750861,20.45925 0,0 2.131171,-1.70495 1.87543,-14.49197 -0.255741,-12.78702 6.052526,-30.85936 6.052526,-30.85936 z"
+                            id="DFL41" />
+                          <path [ngClass]="{'active': frontbody.DFL42 === true}"
+                            d="m 113.03731,256.50775 6.30827,-3.58037 c 0,0 7.92796,21.22646 6.7345,28.72819 -1.19346,7.5017 -4.43284,20.71497 -4.43284,20.71497 0,0 -3.15413,-8.69516 -2.38691,-10.65586 0.76722,-1.96066 2.04593,-2.21641 0.51148,-6.81974 -1.53444,-4.60332 -4.0066,-16.70838 -3.8361,-19.01005 0.17049,-2.30166 -2.8984,-9.37714 -2.8984,-9.37714 z"
+                            id="DFL42" />
+                        </a>
+                        <a xlink:title="L5" id="L5">
+                          <path [ngClass]="{'active': frontbody.DFL51 === true}"
+                            d="m 119.34558,252.92738 18.83955,-10.48536 c 0,0 1.53444,7.24598 -0.0852,16.0264 -1.61969,8.78043 -6.22302,29.06918 -6.22302,29.06918 0,0 -2.81314,9.12141 0,13.12802 2.81315,4.00658 8.01321,8.52469 8.01321,8.52469 0,0 -1.87543,1.19345 -3.23938,1.1082 -1.36395,-0.0852 -8.01321,0.68197 -9.80339,0.25572 -1.79018,-0.42621 -3.83611,-1.79017 -4.34759,-3.23937 -0.51148,-1.4492 -0.85247,-4.94432 -0.85247,-4.94432 0,0 4.94432,-20.71497 4.77383,-22.76089 -0.1705,-2.04594 -5.20006,-23.95438 -7.07549,-26.68227 z"
+                            id="DFL51" />
+                          <path [ngClass]="{'active': frontbody.DFL52 === true}"
+                            d="m 60.099024,243.46498 13.809988,9.97388 c 0,0 -4.859071,23.18714 -4.262343,28.21671 0.596728,5.02957 3.921356,22.76091 3.921356,22.76091 0,0 -0.767223,3.58037 -1.875431,4.34758 -1.108209,0.76722 -4.262342,0.59672 -5.455798,0.42625 -1.193456,-0.1705 -6.052526,0.25572 -6.904995,-0.25575 -0.852466,-0.51149 -3.495119,-0.93771 -3.495119,-0.93771 0,0 8.60993,-5.45581 8.780425,-9.54765 0.170492,-4.09186 -0.937715,-27.87573 -1.960679,-31.20035 -1.022961,-3.32463 -3.324627,-20.11826 -2.557404,-23.78387 z"
+                            id="DFL52" />
+                        </a>
+                        <a xlink:title="S1" id="S1">
+                          <path [ngClass]="{'active': frontbody.DFS11 === true}"
+                            d="m 64.318741,287.83598 c 0,0 -0.213116,4.3902 -3.367248,7.88532 -3.154135,3.49511 -8.268944,7.75745 -7.84271,9.1214 0.426233,1.36395 2.727899,3.15415 2.727899,3.15415 0,0 6.904992,-4.68857 8.183697,-7.24598 1.278702,-2.55741 0.298362,-12.91489 0.298362,-12.91489 z"
+                            id="DFS11" />
+                          <path [ngClass]="{'active': frontbody.DFS12 === true}"
+                            d="m 139.89012,309.19031 c 0,0 2.85572,-2.04595 2.72785,-2.94103 -0.12787,-0.89509 -7.24599,-8.48207 -8.48206,-9.88865 -1.23608,-1.40655 -1.27871,-2.17379 -1.49183,-3.49511 -0.21311,-1.32133 -0.76717,-5.32792 -0.76717,-5.32792 0,0 -2.51483,7.71483 -0.76727,11.42307 1.74756,3.70824 6.77723,9.63292 8.78048,10.22964 z"
+                            id="DFS12" />
+                        </a>
+                        <a xlink:title="S2" id="S2">
+                          <path [ngClass]="{'active': frontbody.DFS2 === true}"
+                            d="m 93.552419,163.65645 c 0,0 -1.085017,-5.48535 4.882568,-6.44981 5.967583,-0.96446 6.932043,6.08814 6.932043,6.08814 z"
+                            id="DFS2" />
+                        </a>
+                        <a xlink:title="S3" id="S3">
+                          <path [ngClass]="{'active': frontbody.DFS3 === true}"
+                            d="m 93.552419,163.65645 11.814611,-0.36167 c 0,0 -1.20557,3.85783 -6.268979,3.91811 -5.063405,0.0603 -5.545632,-3.55644 -5.545632,-3.55644 z"
+                            id="DFS3" />
+                        </a>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="form-row justify-content-center">
+                    <div class="mapaDermatomasDetras">
+                      <svg width="500" height="700" viewBox="0 0 211.66666 317.50001">
+                        <a xlink:title="AC2" id="AC2">
+                          <path [ngClass]="{'active': endbody.DDC2 === true}"
+                            d="m 115.6144,36.28773 c 0,0 -9.8857,-9.64458 -12.53796,-9.64458 -2.65226,0 -5.18396,2.290588 -6.751206,3.737274 -1.567244,1.446688 -5.244239,5.907304 -5.244239,5.907304 0,0 -3.194768,-5.304517 -5.244241,-7.233433 -2.049473,-1.928916 -2.290586,-3.857832 -1.446686,-4.82229 0.843901,-0.964458 3.496159,1.446687 3.496159,1.446687 0,0 -1.446686,-8.318449 -0.964457,-10.126808 0.48223,-1.808359 1.145295,-3.49616 1.145295,-3.49616 0,0 5.123682,-7.1128772 11.392658,-7.2334343 6.268977,-0.1205574 14.466867,0.2411142 17.480797,7.2334343 3.01393,6.99232 0.24112,13.140739 0.24112,13.140739 0,0 1.80835,-2.893374 2.77281,-2.411145 0.96446,0.482229 1.80837,2.531702 -4.34005,13.502412 z"
+                            id="DDC2" />
+                        </a>
+                        <a xlink:title="AC3" id="AC3">
+                          <path [ngClass]="{'active': endbody.DDC3 === true}"
+                            d="m 91.080994,36.287728 0.632925,3.827694 c 0,0 6.058003,-4.189363 8.348591,-4.551036 2.29059,-0.361672 3.73727,-1.265851 7.77594,1.265852 4.03867,2.5317 5.93744,3.918111 5.93744,3.918111 0,0 0.27125,-1.085017 1.05488,-2.772817 l 0.78363,-1.687801 c 0,0 -7.65539,-7.474551 -9.40347,-8.318453 -1.74808,-0.843899 -2.29059,-2.5317 -5.66619,-0.723341 -3.375605,1.808358 -8.619847,6.751201 -9.463746,9.041791 z"
+                            id="DDC3" />
+                        </a>
+                        <a xlink:title="AC4" id="AC4">
+                          <path [ngClass]="{'active': endbody.DDC4 === true}"
+                            d="m 91.713919,40.115422 c 0,0 5.153824,-3.646857 6.901903,-4.068806 1.748078,-0.421952 4.460618,-1.928918 7.534828,-0.241115 3.07421,1.687801 7.62524,4.942848 7.62524,4.942848 0,0 -0.33153,1.627521 0.21098,3.01393 0.54251,1.386408 0.6932,2.260449 0.6932,2.260449 0,0 -4.55103,-2.682399 -7.14301,-3.164629 -2.59198,-0.482229 -6.57037,-0.663064 -9.584303,0.361673 -3.013929,1.024736 -6.751206,3.255044 -6.751206,3.255044 0,0 1.476822,-4.430478 0.512368,-6.359394 z"
+                            id="DDC4" />
+                        </a>
+                        <a xlink:title="AC5" id="AC5">
+                          <path [ngClass]="{'active': endbody.DDC51 === true}"
+                            d="m 91.201551,46.474816 c 0,0 -0.210974,0.8439 -0.843901,1.687801 -0.678797,0.905062 -1.808356,2.079612 -1.808356,2.079612 0,0 8.047193,-2.561842 11.513216,-3.134487 3.46602,-0.572649 5.03326,-0.512369 7.44441,0.271253 2.41114,0.783622 10.78987,3.285186 10.78987,3.285186 0,0 -1.6878,-1.024737 -2.71253,-2.501563 -0.60431,-0.87091 -0.90419,-2.13989 -0.90419,-2.13989 0,0 -4.73187,-2.622122 -6.35939,-2.983794 -1.62752,-0.361672 -6.60051,-1.024736 -9.282906,-0.180835 -2.682399,0.8439 -7.836223,3.616717 -7.836223,3.616717 z"
+                            id="DDC51" />
+                          <path [ngClass]="{'active': endbody.DDC52 === true}"
+                            d="m 65.384327,71.5221 -10.655855,48.76119 -15.770664,22.59042 c 0,0 7.586966,-27.96097 9.37715,-30.43313 1.790185,-2.47215 3.495122,-5.45579 3.495122,-5.45579 0,0 2.983641,-16.793632 3.154133,-21.311713 0.170495,-4.518083 0.596728,-10.741104 0.596728,-10.741104 z"
+                            id="DDC52" />
+                          <path [ngClass]="{'active': endbody.DDC53 === true}"
+                            d="m 141.16877,71.777841 12.44604,46.971009 19.09529,23.27239 c 0,0 -5.62629,-12.27555 -6.56401,-16.1969 -0.93771,-3.92136 -5.62629,-10.22962 -6.564,-11.08209 -0.93772,-0.85247 -3.23938,-2.47216 -3.66562,-8.43944 -0.42623,-5.96728 -4.0066,-9.97388 -4.85907,-12.787025 -0.85246,-2.813145 -0.76722,-12.190299 -0.42623,-14.491962 0.34099,-2.301666 -0.0853,-4.177096 -0.0853,-4.177096 z"
+                            id="DDC53" />
+                        </a>
+                        <a xlink:title="AC6" id="AC6">
+                          <path [ngClass]="{'active': endbody.DDC61 === true}"
+                            d="m 88.549294,50.242229 c 0,0 7.523898,-2.333504 10.166548,-2.844986 2.642648,-0.511479 5.541048,-1.449197 10.400118,0.340987 4.85907,1.790185 9.18083,2.925951 9.18083,2.925951 0,0 9.14724,6.451203 14.68828,7.815154 5.54105,1.363948 12.87228,5.114808 14.83295,8.780422 1.96068,3.665615 2.7279,7.58697 2.7279,7.58697 l -9.37715,-3.068886 c 0,0 -3.23938,-5.626291 -13.98048,-9.121413 C 116.44718,59.161309 101.188,55.239954 101.188,55.239954 l -21.396957,6.393513 c 0,0 -10.059127,3.154132 -12.019804,6.478759 -1.960676,3.324628 -2.386912,3.409874 -2.386912,3.409874 l -9.803386,3.409873 c 0,0 0.681974,-7.927957 2.813145,-10.485361 2.131171,-2.557404 4.518083,-4.688575 11.252583,-6.308267 6.734501,-1.619689 17.516499,-6.244587 18.902625,-7.896116 z"
+                            id="DDC61" />
+                          <path [ngClass]="{'active': endbody.DDC62 === true}"
+                            d="M 38.957808,142.87371 26.64315,168.17735 c 0,0 -2.471423,1.6878 -2.833095,3.07421 -0.361672,1.38641 -1.506966,3.91811 -2.893374,3.73727 -1.386408,-0.18083 -0.964458,-1.3864 0,-3.97838 0.964458,-2.59199 3.013931,-7.41427 3.797553,-9.16236 0.783622,-1.74808 1.748081,-3.73727 1.265851,-3.9181 -0.482229,-0.18084 -2.471423,1.02473 -3.556438,1.92891 -1.085015,0.90418 -4.581175,1.62752 -5.545633,0.96446 -0.964458,-0.66307 0,-1.56725 1.386408,-2.29059 1.386408,-0.72334 6.570369,-3.43588 6.570369,-3.43588 0,0 6.570369,-4.76201 7.353991,-5.66619 0.783624,-0.90418 6.769026,-6.55699 6.769026,-6.55699 z"
+                            id="DDC62" />
+                          <path [ngClass]="{'active': endbody.DDC63 === true}"
+                            d="m 176.73691,149.91293 6.69093,17.54108 c 0,0 6.08814,8.92123 7.17316,8.439 1.08501,-0.48223 1.44668,-0.60278 -0.18084,-3.55644 -1.62752,-2.95365 -7.35399,-12.05572 -6.99232,-12.53795 0.36167,-0.48223 1.08502,-1.08501 2.89337,-0.0603 1.80836,1.02474 5.24424,2.47143 6.26898,1.80836 1.02474,-0.66306 0.72334,-1.62752 -1.32613,-2.83309 -2.04947,-1.20558 -3.91811,-2.8331 -3.91811,-2.8331 -0.0603,-0.36167 -4.70173,-2.29059 -5.96758,-2.29059 -1.26585,0 -3.97839,-2.5317 -4.64146,-3.67699 z"
+                            id="DDC63" />
+                        </a>
+                        <a xlink:title="AC7" id="AC7">
+                          <path [ngClass]="{'active': endbody.DDC71 === true}"
+                            d="m 65.384327,71.5221 4.262342,0.767222 c 0,0 15.855913,-6.990241 21.482204,-8.354192 5.626293,-1.363948 12.531287,-2.216417 19.606777,-0.08525 7.07549,2.131171 23.61337,8.35419 23.61337,8.35419 l 6.81975,-0.426233 c 0,0 -4.60333,-6.137773 -11.93456,-8.439439 C 121.90298,61.036739 101.188,55.239954 101.188,55.239954 l -21.567449,6.393513 c 0,0 -7.586969,2.557404 -9.632894,4.006601 -2.045923,1.449197 -4.60333,5.882032 -4.60333,5.882032 z"
+                            id="DDC71" />
+                          <path [ngClass]="{'active': endbody.DDC72 === true}"
+                            d="m 153.61481,118.74885 19.09529,23.27239 4.02681,7.89169 6.69093,17.54108 c 0,0 -0.48223,0 -0.0603,1.20557 0.42195,1.20557 4.15923,9.88569 3.07421,10.91043 -1.08501,1.02474 -2.5317,-0.36167 -3.79755,-2.8331 -1.26585,-2.47142 -4.34006,-7.0526 -4.34006,-7.0526 l -15.00938,-26.16092 z"
+                            id="DDC72" />
+                          <path [ngClass]="{'active': endbody.DDC73 === true}"
+                            d="M 54.728472,120.28329 38.957808,142.87371 26.64315,168.17735 c 0,0 -1.687801,4.46062 -1.868637,6.57037 -0.180836,2.10975 -0.964458,6.02786 0.663065,6.02786 1.627521,0 2.049474,-1.26585 2.5317,-3.61672 0.48223,-2.35086 1.145294,-4.88256 1.145294,-4.88256 0,0 1.085017,-2.53171 2.230311,-3.43588 1.145294,-0.90418 1.808358,-1.44669 1.808358,-1.44669 l 14.587426,-28.45151 z"
+                            id="DDC73" />
+                        </a>
+                        <a xlink:title="AC8" id="AC8">
+                          <path [ngClass]="{'active': endbody.DDC81 === true}"
+                            d="m 69.646667,72.28932 2e-6,6.734503 c 0,0 13.128014,-6.137773 19.521527,-7.757464 6.393514,-1.61969 12.787024,-3.580366 22.419914,-0.51148 9.6329,3.068887 22.50517,8.35419 22.50517,8.35419 l 0.25574,-6.905001 c 0,0 -13.04276,-5.45579 -22.07893,-8.013197 -9.03616,-2.557404 -17.475603,-1.87543 -23.357635,0.340987 -5.882031,2.21642 -19.265788,7.757462 -19.265788,7.757462 z"
+                            id="DDC81" />
+                          <path [ngClass]="{'active': endbody.DDC82 === true}"
+                            d="m 47.740667,138.94222 2.65226,6.08814 c 0,0 -6.992321,12.23656 -7.775942,14.70798 -0.783622,2.47143 -1.145294,7.47455 -0.783622,9.8857 0.361672,2.41114 0.482229,6.69092 0.482229,6.69092 0,0 0.180835,2.47143 -1.386408,1.74808 -1.567246,-0.72334 -1.808358,-3.49616 -1.868639,-4.09894 -0.06028,-0.60279 -0.06028,-4.15923 -0.301392,-4.64146 -0.241114,-0.48222 -0.602787,-0.90418 -0.602787,-0.90418 0,0 -2.290587,1.74808 -2.833094,5.18397 -0.542507,3.43588 -2.230311,7.5951 -3.375602,7.5951 -1.145294,0 -2.049473,-0.72334 -1.326132,-3.31532 0.723345,-2.59198 1.808359,-6.75121 1.989196,-7.95678 0.180835,-1.20557 0.542507,-2.5317 0.542507,-2.5317 z"
+                            id="DDC82" />
+                          <path [ngClass]="{'active': endbody.DDC83 === true}"
+                            d="m 156.96553,142.31782 5.78674,-0.36167 0.54249,1.56724 15.00938,26.16092 c 0,0 -0.2411,3.43589 -0.0603,4.94285 0.18084,1.50697 1.38641,7.71566 -0.78362,7.71566 -2.17003,0 -1.9892,-2.77281 -2.17003,-3.9181 -0.18084,-1.1453 -0.78363,-6.99232 -1.50697,-7.53483 -0.72334,-0.54251 -1.20557,-0.96446 -1.20557,-0.96446 0,0 -0.66307,1.02474 -0.78362,2.77282 -0.12056,1.74808 0.0603,7.77594 -1.20558,7.77594 -1.26585,0 -1.92891,-1.62752 -1.98919,-4.27978 -0.0603,-2.65226 0.24112,-7.8965 -1.56724,-11.27211 -1.80836,-3.3756 -1.74808,-3.19476 -1.74808,-3.19476 0,0 -0.60279,-4.09895 -0.36168,-5.06341 0.24112,-0.96446 -2.59198,-9.04179 -5.48535,-11.51321 -2.89337,-2.47143 -2.47142,-2.8331 -2.47142,-2.8331 z"
+                            id="DDC83" />
+                        </a>
+                        <a xlink:title="AD1" id="AD1">
+                          <path [ngClass]="{'active': endbody.DDD101 === true}"
+                            d="m 69.646667,79.023823 -0.08524,6.904992 c 0,0 18.242825,-8.524681 22.249426,-9.121409 4.006602,-0.596728 13.809987,-1.363951 23.272387,1.108207 9.4624,2.472158 18.7543,5.924654 18.7543,5.924654 l 0.25574,-4.731198 c 0,0 -12.87227,-6.223019 -22.50517,-8.268943 -9.63289,-2.045925 -10.91159,-3.49512 -23.272379,0.852468 -12.36079,4.347589 -18.66906,7.331229 -18.66906,7.331229 z"
+                            id="DDD101" />
+                          <path [ngClass]="{'active': endbody.DDD102 === true}"
+                            d="m 54.728472,120.28329 5.711539,8.3542 -10.047084,16.39287 -2.65226,-6.08814 z"
+                            id="DDD102" />
+                          <path [ngClass]="{'active': endbody.DDD103 === true}"
+                            d="m 153.61481,118.74885 -8.43944,3.83611 c 0,0 3.11151,9.4624 5.15744,11.97718 2.04592,2.51478 6.63272,7.75568 6.63272,7.75568 l 5.78674,-0.36167 z"
+                            id="DDD103" />
+                        </a>
+                        <a xlink:title="AD2" id="AD2">
+                          <path [ngClass]="{'active': endbody.DDD2 === true}"
+                            d="m 65.384327,71.5221 4.26234,0.76722 -0.08524,13.639493 c 0,0 13.128011,-6.308262 18.83955,-7.842705 5.711537,-1.534443 12.019803,-3.239381 23.442883,-0.511482 11.42307,2.727899 21.99368,6.26564 21.99368,6.26564 l 0.51148,-11.636198 6.81975,-0.426233 12.44604,46.971015 -8.43944,3.83611 c 0,0 -6.99024,-13.89524 -8.18369,-18.49857 -1.19346,-4.603325 -3.06889,-12.275541 -3.06889,-12.275541 0,0 -17.6461,-6.990241 -21.56745,-7.757464 -3.92136,-0.76722 -11.16734,-3.409873 -24.977327,2.21642 -13.809987,5.626291 -17.049368,7.075488 -17.049368,7.075488 0,0 -1.363949,13.724737 -3.665615,20.203497 -2.301663,6.47876 -6.223018,15.0887 -6.223018,15.0887 l -5.711539,-8.3542 z"
+                            id="DDD2" />
+                        </a>
+                        <a xlink:title="AD3" id="AD3">
+                          <path [ngClass]="{'active': endbody.DDD3 === true}"
+                            d="m 70.328644,93.345293 c 0,0 16.878876,-7.757465 23.101895,-9.036167 6.223018,-1.278702 10.570611,-3.068886 19.351031,-0.08525 8.78043,2.98364 21.14122,7.586967 21.14122,7.586967 l -1.02296,6.734503 c 0,0 -13.55425,-7.245982 -21.39696,-8.780426 -7.84271,-1.534443 -13.128015,-1.87543 -21.90844,1.363949 -8.780423,3.239381 -17.390356,7.07549 -17.390356,7.07549 z"
+                            id="DDD3" />
+                        </a>
+                        <a xlink:title="AD4" id="AD4">
+                          <path [ngClass]="{'active': endbody.DDD4 === true}"
+                            d="m 132.89983,98.545344 c 0,0 -15.25919,-7.927951 -23.52813,-9.462394 -8.26895,-1.534443 -14.321472,0 -18.498566,1.534443 -4.177096,1.534443 -18.66906,7.586964 -18.66906,7.586964 l 1.193456,4.347593 c 0,0 14.491964,-5.796784 19.777268,-6.649253 5.285303,-0.852469 10.655852,-2.045925 19.947762,0.681974 9.29191,2.727899 18.83955,5.796789 18.83955,5.796789 z"
+                            id="DDD4" />
+                        </a>
+                        <a xlink:title="AD5" id="AD5">
+                          <path [ngClass]="{'active': endbody.DDD5 === true}"
+                            d="m 131.96211,102.38146 c 0,0 -1.06256,2.13117 -1.48879,4.26234 -0.42624,2.13117 -0.72763,3.15413 -0.72763,3.15413 0,0 -18.7543,-7.58697 -28.64294,-7.33123 -9.888629,0.25574 -26.170777,7.67222 -26.170777,7.67222 0,0 0.05207,-0.70277 -0.787905,-4.34759 l -0.746538,-3.23938 c 0,0 17.646097,-8.183696 28.3872,-7.927955 10.7411,0.255741 30.17738,7.757465 30.17738,7.757465 z"
+                            id="DDD5" />
+                        </a>
+                        <a xlink:title="AD6" id="AD6">
+                          <path [ngClass]="{'active': endbody.DDD6 === true}"
+                            d="m 74.931973,110.13892 c 0,0 0.426236,1.44919 0.511482,3.32463 0.08525,1.87543 -0.170492,2.81314 -0.170492,2.81314 0,0 17.816589,-7.58697 24.806827,-7.24598 6.99024,0.34099 29.41016,7.07549 29.41016,7.07549 0,0 -0.34098,-2.30167 -0.34098,-3.49512 0,-1.19346 0.59672,-2.81315 0.59672,-2.81315 0,0 -19.18054,-7.24598 -27.61997,-7.33123 -8.43944,-0.0852 -27.193747,7.67222 -27.193747,7.67222 z"
+                            id="DDD6" />
+                        </a>
+                        <a xlink:title="AD7" id="AD7">
+                          <path [ngClass]="{'active': endbody.DDD7 === true}"
+                            d="m 75.272963,116.27669 c 0,0 -0.04524,2.41191 -0.286359,3.13526 -0.241115,0.72334 -1.205574,2.71253 -1.205574,2.71253 0,0 17.119129,-6.44981 27.18566,-6.57036 10.06653,-0.12056 29.71736,6.51008 29.71736,6.51008 0,0 -0.90418,-2.65225 -0.96446,-3.61671 -0.0603,-0.96446 -0.22964,-2.34129 -0.22964,-2.34129 0,0 -15.51347,-4.74988 -22.79679,-6.158 -9.041794,-1.74808 -10.156879,-1.68934 -31.420197,6.32849 z"
+                            id="DDD7" />
+                        </a>
+                        <a xlink:title="AD8" id="AD8">
+                          <path [ngClass]="{'active': endbody.DDD8 === true}"
+                            d="m 73.78103,122.12448 c 0,0 -0.843899,2.8331 -1.145294,3.43589 -0.301392,0.60278 -1.145294,2.5317 -1.145294,2.5317 0,0 23.267548,-7.0526 30.742098,-6.38954 7.47455,0.66307 30.4407,6.2087 30.4407,6.2087 0,0 -1.38641,-2.65226 -1.44668,-3.25504 -0.0603,-0.60279 -0.54251,-2.59199 -0.54251,-2.59199 0,0 -20.13306,-6.87176 -29.35569,-6.7512 -9.22263,0.12056 -27.54733,6.81148 -27.54733,6.81148 z"
+                            id="DDD8" />
+                        </a>
+                        <a xlink:title="AD9" id="AD9">
+                          <path [ngClass]="{'active': endbody.DDD9 === true}"
+                            d="m 71.490442,128.09207 c 0,0 20.374176,-6.38954 29.536528,-6.51009 9.16235,-0.12056 31.64627,6.32925 31.64627,6.32925 l 2.47143,5.90731 c 0,0 -18.08359,-5.72647 -33.99715,-5.66619 -15.913551,0.0603 -31.887386,6.63064 -31.887386,6.63064 0,0 1.989191,-4.03866 2.230308,-6.69092 z"
+                            id="DDD9" />
+                        </a>
+                        <a xlink:title="AD10" id="AD10">
+                          <path [ngClass]="{'active': endbody.DDD10 === true}"
+                            d="m 69.260134,134.78299 c 0,0 17.541079,-7.17315 33.032686,-6.87176 15.4916,0.30139 32.85185,5.90731 32.85185,5.90731 l 2.47142,5.72647 c 0,0 -21.27835,-5.42508 -37.07135,-5.72647 -15.793,-0.3014 -32.550457,6.38953 -32.550457,6.38953 z"
+                            id="DDD10" />
+                        </a>
+                        <a xlink:title="AD11" id="AD11">
+                          <path [ngClass]="{'active': endbody.DDD11 === true}"
+                            d="m 67.994283,140.20807 c 0,0 18.505538,-7.0526 34.177977,-6.57037 15.67244,0.48223 35.44383,5.90731 35.44383,5.90731 0,0 0.71477,1.54833 1.54531,4.72544 0.79801,3.0527 0.74528,5.22053 0.74528,5.22053 0,0 -26.04037,-8.98152 -39.60306,-8.86096 -13.562687,0.12056 -34.84104,8.61984 -34.84104,8.61984 0,0 0.942955,-4.65708 1.606839,-6.69396 0.68683,-2.10727 0.502914,-1.66467 0.924864,-2.34783 z"
+                            id="DDD11" />
+                        </a>
+                        <a xlink:title="AD12" id="AD12">
+                          <path [ngClass]="{'active': endbody.DDD12 === true}"
+                            d="m 65.46258,149.24986 -0.904179,9.16235 c 0,0 25.799251,-10.06653 39.844169,-9.64458 14.04492,0.42195 36.10689,9.46375 36.10689,9.46375 l -0.60278,-8.7404 c 0,0 -22.78532,-8.61985 -37.91525,-8.92124 -15.12994,-0.30139 -36.52885,8.68012 -36.52885,8.68012 z"
+                            id="DDD12" />
+                        </a>
+                        <a xlink:title="AL1" id="AL1">
+                          <path [ngClass]="{'active': endbody.DDL1 === true}"
+                            d="m 64.558401,158.41221 c 0,0 -0.301392,5.54564 -0.361672,7.0526 -0.06028,1.50697 0,4.58118 0,4.58118 0,0 26.341758,-19.59056 40.266121,-18.68638 13.92436,0.90418 35.56438,16.69718 35.56438,16.69718 0,0 0.42196,-3.13449 0.54251,-5.30452 0.10371,-1.86672 -0.0603,-4.52089 -0.0603,-4.52089 0,0 -24.83479,-9.5843 -37.4933,-9.70486 -12.658508,-0.12056 -38.457759,9.88569 -38.457759,9.88569 z"
+                            id="DDL1" />
+                        </a>
+                        <a xlink:title="AL2" id="AL2">
+                          <path [ngClass]="{'active': endbody.DDL2 === true}"
+                            d="m 64.196729,170.04599 c 0,0 0.241115,19.34943 1.386409,24.71423 1.145294,5.3648 2.109753,7.83622 2.109753,7.83622 l 13.02018,-35.92606 c 0,0 1.808361,-11.15154 22.483929,-11.63377 20.67557,-0.48223 22.24281,11.39266 22.24281,11.39266 l 10.06653,36.83024 c 0,0 1.62752,-4.09895 2.47142,-10.06653 0.8439,-5.96759 2.04947,-25.13619 2.04947,-25.13619 0,0 -22.00169,-16.87801 -37.13162,-16.75745 -15.129941,0.12055 -38.698881,18.74665 -38.698881,18.74665 z"
+                            id="DDL2" />
+                        </a>
+                        <a xlink:title="AL3" id="AL3">
+                          <path [ngClass]="{'active': endbody.DDL31 === true}"
+                            d="m 97.010907,179.61509 c 0,0 -15.685421,22.24943 -17.390356,36.91189 -1.704938,14.66245 -2.557407,25.74454 -2.557407,25.74454 l 10.059127,8.60994 c 0,0 1.363951,-5.54105 0.852469,-10.22963 -0.511482,-4.68857 -1.902013,-7.81458 -0.08525,-11.67881 5.370551,-11.42308 4.603329,-11.16734 5.11481,-22.16418 0.510437,-10.9744 3.580367,-21.48221 3.921354,-23.44288 0.34099,-1.96068 0.937718,-5.28531 0.937718,-5.28531 z"
+                            id="DDL31" />
+                          <path [ngClass]="{'active': endbody.DDL32 === true}"
+                            d="m 107.59529,181.74355 c 0,0 13.11186,16.96413 14.54632,31.62659 1.43447,14.66245 0.27627,31.96756 0.27627,31.96756 l -8.37811,3.40988 c 0,0 -0.77885,-3.30791 0.39098,-5.88204 1.97857,-4.3537 1.34454,-8.07032 -0.18394,-11.93455 -4.51858,-11.42308 -4.64028,-10.9116 -5.07062,-21.90844 -0.42946,-10.9744 -2.41565,-20.71499 -2.70255,-22.67566 -0.2869,-1.96068 -0.95946,-7.41648 -0.95946,-7.41648 z"
+                            id="DDL32" />
+                        </a>
+                        <a xlink:title="AL4" id="AL4">
+                          <path [ngClass]="{'active': endbody.DDL41 === true}"
+                            d="m 77.063144,242.27152 10.059125,8.60994 c 0,0 -8.524682,32.82003 -8.183692,40.06601 0.340987,7.24599 0.852466,8.09845 0.170492,9.6329 -0.681974,1.53445 -0.937715,1.53445 -0.937715,1.53445 l -1.619689,-5.62631 z"
+                            id="DDL41" />
+                          <path [ngClass]="{'active': endbody.DDL42 === true}"
+                            d="m 114.03977,248.74758 8.37811,-3.40988 c 0,0 4.68516,7.16345 4.08843,18.58652 -0.59673,11.42307 -2.13117,23.52813 -2.13117,23.52813 l -2.21642,10.82635 c 0,0 -1.70493,-3.15415 -0.85246,-5.37056 0.85246,-2.21641 1.02296,-2.04592 1.02296,-2.04592 0,0 -0.93772,-5.37054 -1.87543,-8.43944 -0.93772,-3.06887 -7.20175,-28.13687 -6.41402,-33.6752 z"
+                            id="DDL42" />
+                        </a>
+                        <a xlink:title="AL5" id="AL5">
+                          <path [ngClass]="{'active': endbody.DDL51 === true}"
+                            d="m 135.37198,224.71068 -1.19345,41.51521 -3.75086,25.3183 3.06888,2.8984 c 0,0 2.98364,-23.61337 5.11481,-32.64954 2.13118,-9.03616 1.10821,-25.06257 -3.23938,-37.08237 z"
+                            id="DDL51" />
+                          <path [ngClass]="{'active': endbody.DDL52 === true}"
+                            d="m 122.15872,298.2787 10.65586,13.72474 c 0,0 -6.39351,2.38691 -8.35419,-3.23938 -1.96068,-5.62628 -2.30167,-10.48536 -2.30167,-10.48536 z"
+                            id="DDL52" />
+                          <path [ngClass]="{'active': endbody.DDL53 === true}"
+                            d="m 78.171354,302.11482 -10.485361,8.43941 c 0,0 5.626291,2.04595 7.672216,-0.51146 2.045925,-2.55741 2.813145,-7.92795 2.813145,-7.92795 z"
+                            id="DDL53" />
+                          <path [ngClass]="{'active': endbody.DDL54 === true}"
+                            d="m 68.794201,229.4845 2.216419,63.16792 -5.029565,2.72788 c 0,0 3.068886,-4.17708 2.216417,-12.61652 -0.852466,-8.43944 -9.036163,-43.73164 0.596729,-53.27928 z"
+                            id="DDL54" />
+                        </a>
+                        <a xlink:title="AS1" id="AS1">
+                          <path [ngClass]="{'active': endbody.DDS11 === true}"
+                            d="m 80.713071,166.67038 -13.02018,35.92606 1.10131,26.88806 2.216419,63.16792 2.045923,-1.70495 0.937715,-62.57118 c 0,0 1.87543,-29.8364 7.757464,-43.3054 5.882031,-13.469 4.688575,-10.99684 4.688575,-10.99684 0,0 -4.890447,-1.59408 -5.727226,-7.40367 z"
+                            id="DDS11" />
+                          <path [ngClass]="{'active': endbody.DDS12 === true}"
+                            d="m 125.43981,166.42927 10.06653,36.83024 c 0,0 0.46236,16.42161 -0.13436,21.45117 -0.59672,5.02956 -1.19345,41.51521 -1.19345,41.51521 l -3.75086,25.3183 -1.96068,-1.79017 c 0,0 2.89839,-42.28244 1.53444,-52.00058 -1.36395,-9.71814 -12.0198,-61.88921 -12.0198,-61.88921 0,0 8.01136,-3.78124 7.45818,-9.43496 z"
+                            id="DDS12" />
+                          <path [ngClass]="{'active': endbody.DDS13 === true}"
+                            d="m 122.15872,298.2787 2.30167,-12.10505 9.03616,8.26894 0.93772,2.13117 c 0,0 7.84271,8.01319 8.35419,9.54764 0.51148,1.53446 0.68198,2.55741 0.0853,3.06891 -0.59673,0.51146 -10.05913,2.81313 -10.05913,2.81313 z"
+                            id="DDS13" />
+                          <path [ngClass]="{'active': endbody.DDS14 === true}"
+                            d="m 76.636911,289.1999 -3.580368,1.74757 -2.045923,1.70495 -5.029565,2.72788 c 0,0 -3.963977,5.32794 -5.796785,7.20336 -1.832806,1.87545 -3.836106,4.51808 -1.74756,5.83941 2.088547,1.32133 9.249283,2.13116 9.249283,2.13116 l 10.485361,-8.43941 -1.619689,-5.62631 z"
+                            id="DDS14" />
+                        </a>
+                        <a xlink:title="AS2" id="AS2">
+                          <path [ngClass]="{'active': endbody.DDS21 === true}"
+                            d="m 86.440295,174.07405 c 0,0 -8.319204,14.83914 -10.489234,35.09276 -2.170031,20.25362 -2.049474,22.54421 -2.290588,35.44383 -0.241115,12.89962 -0.60393,46.33683 -0.60393,46.33683 l 3.580368,-1.74757 0.426233,-46.92838 c 0,0 1.540177,-28.40298 5.036336,-35.63641 3.496161,-7.23344 15.76389,-28.55446 15.76389,-28.55446 0,0 -8.046717,-1.00328 -11.423075,-4.0066 z"
+                            id="DDS21" />
+                          <path [ngClass]="{'active': endbody.DDS22 === true}"
+                            d="m 105.51418,178.93041 c 0,0 14.44027,18.42179 16.12807,29.51306 1.68781,11.09126 0.77563,36.89423 0.77563,36.89423 0,0 4.52889,8.91752 4.04667,17.83875 -0.48223,8.92123 -2.00416,22.9972 -2.00416,22.9972 l 4.0066,3.58037 c 0,0 3.90486,-40.44165 0.047,-61.90084 -3.85783,-21.45919 -10.53239,-51.98895 -10.53239,-51.98895 0,0 -3.96418,2.3815 -12.46745,3.06618 z"
+                            id="DDS22" />
+                        </a>
+                        <a xlink:title="AS3" id="AS3">
+                          <path [ngClass]="{'active': endbody.DDS3 === true}"
+                            d="m 97.863368,178.08065 2.681372,-10.50609 c 0,0 -4.701733,-0.12055 -5.545635,-3.13449 -0.843902,-3.01393 3.737274,-5.30451 7.353995,-5.42507 3.61671,-0.12056 8.439,0.96446 9.04179,4.2195 0.60279,3.25505 -7.71566,4.34006 -7.71566,4.34006 l 1.83492,11.35585 c 0,0 8.56568,-1.28661 12.46745,-3.06618 3.90177,-1.77957 7.27737,-5.27574 7.45821,-9.43496 0.18083,-4.15923 -5.48536,-11.75433 -23.32783,-11.2721 -17.84247,0.48223 -21.097519,8.55955 -21.398909,11.51321 -0.301392,2.95366 2.352376,5.70526 5.727224,7.40367 3.374847,1.69841 6.210003,3.30086 11.423073,4.0066 z"
+                            id="DDS3" />
+                        </a>
+                        <a xlink:title="AS4" id="AS4">
+                          <path [ngClass]="{'active': endbody.DDS4 === true}"
+                            d="m 103.67923,167.57456 c 0,0 4.03866,-0.90418 3.67699,-2.59198 -0.36167,-1.6878 -2.83309,-2.35086 -4.46061,-2.35086 -1.62753,0 -3.737281,0.42195 -4.340066,1.74808 -0.602787,1.32613 1.989196,3.19476 1.989196,3.19476 0,0 -3.255047,0 -4.581176,-1.3864 -1.326131,-1.38641 -2.049473,-4.03867 1.386406,-5.78675 3.43588,-1.74808 6.93204,-2.17003 11.09127,-0.48223 4.15922,1.6878 3.23327,4.83026 0.66306,6.2087 -1.68591,0.90418 -2.29058,1.44668 -5.42507,1.44668 z"
+                            id="DDS4" />
+                        </a>
+                        <a xlink:title="AS5" id="AS5">
+                          <path [ngClass]="{'active': endbody.DDS5 === true}"
+                            d="m 100.54474,167.57456 c 0,0 -0.763312,-0.23501 -1.402662,-1.32191 -0.47396,-0.80573 -1.513131,-1.8328 0.63935,-3.02626 2.152482,-1.19346 4.986942,-0.63935 6.031212,0.0426 1.04428,0.68197 2.81315,2.1951 0.74591,3.19675 -2.06723,1.00165 -2.87932,1.10879 -2.87932,1.10879 z"
+                            id="DDS5" />
+                        </a>
+                      </svg>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-around text-center">
+          <button class="btn btn-primary col-md-4" (click)="editarhistoria()">
+            Modificar
+          </button>
+          <button class="btn btn-primary col-md-4" (click)="atras()">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalAnalisis" tabindex="-1" role="dialog" aria-labelledby="ModalAnalisisLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-normal" id="ModalAnalisis">
+          Análisis
+        </h5>
+        <button type="button" class="btn-close text-dark" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <h3>
+              Seleccionados:
+            </h3>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-5 m-2 borde" *ngFor="let item of analisisseleccioanados">
+            <p>
+              {{item.laboratorio.Name}}
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <form>
+              <div class="form-group">
+                <label class="bmd-label-static">
+                  Observaciones:
+                </label>
+                <input name="reserva.LaboratoryExam" [(ngModel)]="reserva.LaboratoryExam" required minlength="2"
+                  placeholder="........." type="text" class="form-control" readonly>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">
+          Guardar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalResutadosAnalisis" tabindex="-1" role="dialog" aria-labelledby="ModalResutadosAnalisisLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-normal" id="ModalResutadosAnalisis">
+          Resultados Análisis
+        </h5>
+        <button type="button" class="btn-close text-dark" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table table-bordered border-primary">
+            <thead class="text-center text-primary fw-bold">
+              <th>
+                Analisis
+              </th>
+              <th>
+                Resultado
+              </th>
+              <th>
+                Unidad
+              </th>
+              <th>
+                Rango
+              </th>
+              <th>
+                Metodo
+              </th>
+            </thead>
+            <tbody>
+              <tr  class="text-center" *ngFor="let item of resultadosdeanalisis">
+                <td class="text-primary fw-bold">
+                  {{item.laboratorio.Name}}
+                </td>
+                <td>
+                  {{item.Result}}
+                </td>
+                <td class="text-primary fw-bold">
+                  {{item.Measurement}}
+                </td>
+                <td>
+                  {{item.Detail}}
+                </td>
+                <td class="text-primary fw-bold">
+                  {{item.Method}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalLaboratorio" tabindex="-1" role="dialog" aria-labelledby="ModalLaboratorioLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-normal" id="ModalLaboratorio">
+          Rayos X - Tomografia - Resonancia Magnética
+        </h5>
+        <button type="button" class="btn-close text-dark" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-12 p-2">
+            <h3>
+              Seleccionados:
+            </h3>
+            <div class="row justify-content-center">
+              <div class="col-lg-5 m-2 borde" *ngFor="let item of rxtmrmseleccioanados">
+                <p>
+                  {{item.laboratoriodos.Name}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-4">
+            <form>
+              <div class="row">
+                <div class="col-12 p-1">
+                  <div class="form-group">
+                    <label class="bmd-label-static">
+                      Valor de Creatinina
+                    </label>
+                    <input name="reserva.Creatininevalue" [(ngModel)]="reserva.Creatininevalue" required minlength="2"
+                      placeholder="........." type="text" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="col-12 p-1">
+                  <div class="form-group">
+                    <label class="bmd-label-static">
+                      Urea
+                    </label>
+                    <input name="reserva.Urea" [(ngModel)]="reserva.Urea" required minlength="2" placeholder="........."
+                      type="text" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="col-12 p-1">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" name="reserva.ETS" type="checkbox" [ngModel]="reserva.ETS"
+                        [value]="reserva.ETS" readonly>
+                      ETS
+                      <span class="form-check-sign">
+                        <span class="check"></span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12 p-1">
+                  <div class="form-group">
+                    <label class="bmd-label-static">
+                      Especificaciones otros
+                    </label>
+                    <input name="reserva.Specifyothers" [(ngModel)]="reserva.Specifyothers" required minlength="2"
+                      placeholder="........." type="text" class="form-control" readonly>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModalEntrevista" tabindex="-1" role="dialog" aria-labelledby="ModalEntrevistaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalEntrevistaLabel">
+          Entrevista con el Paciente
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row justify-content-center bg-light">
+            <div class="col-lg-6">
+              <label class="bmd-label-primary">
+                <h3>
+                  ENTREVISTA CON EL PACIENTE
+                </h3>
+              </label>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-lg-12">
+              <h4 class="text-center text-primary">PREGUNTA 1: ¿Tiene el dolor una o más de las siguientes características?</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 offset-1">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Burning" id="Burning"
+                [(ngModel)]="entrevista.Burning" [value]="entrevista.Burning">
+                  Comezón
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+            <div class="col-lg-4">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Painfulcoldsensation" id="Painfulcoldsensation"
+                [(ngModel)]="entrevista.Painfulcoldsensation" [value]="entrevista.Painfulcoldsensation">
+                Sensasión de frio doloroso
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+            <div class="col-lg-4">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Electricshocks" id="Electricshocks"
+                [(ngModel)]="entrevista.Electricshocks" [value]="entrevista.Electricshocks">
+                Descargas eléctricas
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-lg-12">
+              <h4 class="text-center text-primary">PREGUNTA 2: ¿Se asocia el dolor con uno o más de los siguiente síntomas en la misma zona?</h4>
+            </div>
+          </div>
+          <div class="row ml-4">
+            <div class="col-lg-3">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Tingle" id="Tingle"
+                [(ngModel)]="entrevista.Tingle" [value]="entrevista.Tingle">
+                Hormigueo
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+            <div class="col-lg-3">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Sensationofpinsandneedles" id="Sensationofpinsandneedles"
+                [(ngModel)]="entrevista.Sensationofpinsandneedles" [value]="entrevista.Sensationofpinsandneedles">
+                Sensasión de alfileres y agujas
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+            <div class="col-lg-3">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Numbness" id="Numbness"
+                [(ngModel)]="entrevista.Numbness" [value]="entrevista.Numbness">
+                Entumecimiento
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+            <div class="col-lg-3">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Itch" id="Itch"
+                [(ngModel)]="entrevista.Itch" [value]="entrevista.Itch">
+                Picazón
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <hr>
+          <div class="row justify-content-center bg-light">
+            <div class="col-lg-5">
+              <label class="bmd-label-primary"><h3>EXAMEN DEL PACIENTE</h3></label>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-lg-12">
+              <h4 class="text-center text-primary">¿Está el dolor localizado en una zona donde el examen físico puede mostrar una o más de las siguientes características?</h4>
+            </div>
+          </div>
+          <div class="row justify-content-around">
+            <div class="col-lg-4">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Hypoaesthesiatotouch" id="Hypoaesthesiatotouch"
+                [(ngModel)]="entrevista.Hypoaesthesiatotouch" [value]="entrevista.Hypoaesthesiatotouch">
+                Hipoestesia al tacto
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+            <div class="col-lg-4">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Hypoaesthesiatopunctures" id="Hypoaesthesiatopunctures"
+                [(ngModel)]="entrevista.Hypoaesthesiatopunctures" [value]="entrevista.Hypoaesthesiatopunctures">
+                Hipoestesia a los pinchazos
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-lg-12">
+              <h4 class="text-center text-primary">En la zona dolorosa, el dolor puede ser causado o incrementado por:</h4>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-3">
+              <label class="form-check-label bmd-label-static">
+                <input class="form-check-input" type="checkbox" name="Brushed" id="Brushed"
+                [(ngModel)]="entrevista.Brushed" [value]="entrevista.Brushed">
+                Cepillado
+                <span class="form-check-sign">
+                  <span class="check"></span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <hr>
+          <div class="row justify-content-center bg-light">
+            <div class="col-lg-2">
+              <label class="bmd-label-primary"><h3>RESULTADO</h3></label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="row justify-content-around">
+        <div class="col-lg-4 offset-1">
+          <div class="form-group">
+            <label for="fechaEntrevista" class="bmd-label-static">Fecha:</label>
+            <input type="date" class="form-control" id="fechaEntrevista">
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <label class="bmd-label-primary">PUNTOS TOTALES: </label><br>
+          <output></output>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

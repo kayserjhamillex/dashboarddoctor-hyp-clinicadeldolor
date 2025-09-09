@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">
+          Actualizar Duración
+        </h4>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">
+                  Nombre
+                </label>
+                <input name="duracion.Name"
+                [(ngModel)]="duracion.Name"
+                type="text" class="form-control"
+                placeholder="nombre ....">
+              </div>
+            </div>
+            <div class="col-12">
+              <button (click)="updateDuracion()" type="submit" class="btn btn-primary pull-right"
+                [disabled]="(duracion.Name === '')? true:false">
+                Actualizar
+              </button>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

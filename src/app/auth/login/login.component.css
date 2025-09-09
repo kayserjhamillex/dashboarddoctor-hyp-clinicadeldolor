@@ -1,0 +1,20 @@
+.app-dashboart{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-body, .main {
+  height: 100vh;
+}
+
+
+img {
+  min-width: 50px;
+  max-width: 200px;
+  min-height: 50px;
+  max-height: 200px;
+  width: auto;
+}
+
+

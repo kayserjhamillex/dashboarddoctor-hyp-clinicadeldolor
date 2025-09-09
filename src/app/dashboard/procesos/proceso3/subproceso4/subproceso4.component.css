@@ -1,0 +1,39 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+.panel-heading{
+  background: -prefix-linear-gradient(left top, #c8afe1, white);
+  background: linear-gradient(to bottom right, rgb(200, 175, 225), white);
+  border-radius: 5px;
+}
+
+span, label, h2, h5 {
+  font-weight: bold;
+  color: #7b1fa2;
+}
+
+
+.mapaDermatomasFrente a path {
+  fill: beige;
+  stroke: black;
+  stroke-width: 1px;
+}
+
+.mapaDermatomasDetras a path {
+  fill: beige;
+  stroke: black;
+  stroke-width: 1px;
+}
+
+.mapaDermatomasFrente a path.active {
+  fill: red;
+  stroke: green;
+  stroke-width: 1px;
+}
+
+.mapaDermatomasDetras a path.active {
+  fill: red;
+  stroke: green;
+  stroke-width: 1px;
+}

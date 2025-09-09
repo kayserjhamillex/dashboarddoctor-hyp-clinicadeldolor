@@ -1,0 +1,624 @@
+<div class="row">
+  <div class="col-12 p-1">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">
+          Buscar Historia Clinica
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 p-1">
+            <form>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">
+                      Numero Historia Clinica:
+                    </label>
+                    <br>
+                    <input name="dato"
+                    [(ngModel)]="dato"
+                    autofocus tabindex="1" required
+                    type="text" class="form-control"
+                    placeholder="32536243">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <!-- <div class="col-12 col-md-6">
+                  <button (click)="searchEmailCliente()"
+                    type="button" class="btn btn-primary btn-block"
+                    [disabled]="(dato === '')? true:false">
+                    Por Correo
+                  </button>
+                </div> -->
+                <div class="col-12 p-2">
+                  <button (click)="searchDocCliente()"
+                    type="button" class="btn btn-primary btn-block"
+                  [disabled]="(dato === '')? true:false">
+                    Por Documento
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 p-1">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title text-center">
+          Paciente
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 p-1">
+            <div class="row p-4">
+              <div class="col-12 col-md-4 col-lg-3 p-1">
+                <img [src]="cliente.Photo" alt="foto paciente">
+              </div>
+              <div class="col-12 col-md-8 col-lg-9 p-1">
+                <div class="row">
+                  <div class="col-12 p-1">
+                    <h4 class="text-center">
+                      <span>
+                        Nombres y Apellidos:
+                      </span>
+                      {{cliente.Name + ' ' + cliente.LastName}}
+                    </h4>
+                  </div>
+                  <div class="col-12 p-1">
+                    <div class="row">
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          DNI:
+                        </span>
+                        {{cliente.DocumentNumber}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Correo:
+                        </span>
+                        {{cliente.Email}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Celular:
+                        </span>
+                        {{cliente.Phone}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Genero:
+                        </span>
+                        {{cliente.Gender}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Estado Civil:
+                        </span>
+                        {{cliente.CivilStatus}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Dedicacion:
+                        </span>
+                        {{cliente.Job}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-4 p-1">
+                        <span>
+                          Edad:
+                        </span>
+                        {{edad}}
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-8 p-1">
+                        <span>
+                          Direccion:
+                        </span>
+                        {{cliente.Direction}}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 p-1">
+            <button (click)="editar()"
+              type="button" class="btn btn-primary"
+              [disabled]="(cliente === 0)? true:false">
+              Editar Paciente
+            </button>
+          </div>
+          <hr>
+          <div class="col-12 col-md-6 col-lg-4 p-1" *ngIf="!varios">
+            <button (click)="unahistoria()"
+              type="button" class="btn btn-primary btn-block"
+              [disabled]="(cliente === 0)? true:false">
+              Historial
+            </button>
+          </div>
+          <div class="col-12 p-1" *ngIf="varios">
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-4 p-1" *ngFor="let obj of especialidades">
+                <button (click)="historia(obj.EspecialidadId)" *ngIf="obj.EspecialidadId !== 2"
+                  type="button" class="btn btn-primary btn-block"
+                  [disabled]="(cliente === 0)? true:false">
+                  {{obj.especialidad.Name}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 p-1">
+    <div class="card p-2">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">
+          Historia Clinica: {{cliente.DocumentNumber}}
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="row p-4">
+          <div class="col-12 p-1">
+            <div *ngIf="push" class="row justify-content-center">
+              <div class="col-12 p-1">
+                <h2 class="text-center">
+                  ANTECEDENTES PRINCIPALES
+                </h2>
+                <div id="accordion" role="tablist" aria-multiselectable="true" class="panel-group">
+                  <div class="panel panel-default">
+                    <div class="panel-heading p-2 text-center" role="tab" id="heading2">
+                      <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                          aria-expanded="false" aria-controls="collapse2">
+                          <strong>
+                            Antecedentes Heredofamiliares
+                          </strong>
+                          <i class="material-icons">
+                            keyboard_arrow_down
+                          </i>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2">
+                      <div class="card-body">
+                        <!-- mostrar antecedentes 3 -->
+                        <div class="row">
+                          <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let item of clienteant3elegidos">
+                            <h3>
+                              {{item.antecedenteheredofamiliar.Name}}
+                            </h3>
+                          </div>
+                          <div class="col-12 com-md-6 col-lg-4 col xl 3 p-2">
+                            <div class="row">
+                              <div class="col-4 p-2">
+                                <span>
+                                  Otros:
+                                </span>
+                              </div>
+                              <div class="col-8 p-2">
+                                <h3>
+                                  {{cliente.Othershereditary}}
+                                </h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading p-2 text-center" role="tab" id="heading3">
+                      <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                          aria-expanded="false" aria-controls="collapse3">
+                          <strong>
+                            Antecedentes Personales No Patológicos
+                          </strong>
+                          <i class="material-icons">
+                            keyboard_arrow_down
+                          </i>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3">
+                      <div class="card-body">
+                        <!-- mostrar antecedentes 2 -->
+                        <div class="row">
+                          <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let item of clienteant2elegidos">
+                            <h3>
+                              {{item.antecedentenopatologico.Name}}
+                            </h3>
+                          </div>
+                          <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2">
+                            <span>
+                              Medicamentos:
+                            </span>
+                            <br>
+                            {{cliente.Medicine}}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading p-2 text-center" role="tab" id="heading4">
+                      <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                          aria-expanded="false" aria-controls="collapse4">
+                          <strong>
+                            Anestesico/Quirúrgicos
+                          </strong>
+                          <i class="material-icons">
+                            keyboard_arrow_down
+                          </i>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapse4" class="collapse" role="tabpanel" aria-labelledby="heading4">
+                      <div class="card-body">
+                          <div class="form-row justify-content-between">
+                            <div class="col-6 col-md-4 col-lg-3 col-xl-3 p-3">
+                              <h5>
+                                G:
+                              </h5>
+                              <br>
+                              <h6>
+                                {{cliente.G}}
+                              </h6>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                              <h5>
+                                P:
+                              </h5>
+                              <br>
+                              <h6>
+                                {{cliente.P}}
+                              </h6>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                              <h5>
+                                A:
+                              </h5>
+                              <br>
+                              <h6>
+                                {{cliente.A}}
+                              </h6>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                              <h5>
+                                C:
+                              </h5>
+                              <br>
+                              <h6>
+                                {{cliente.C}}
+                              </h6>
+                            </div>
+                            <div *ngIf="cliente.Gender === 'Femenino'" class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                              <h5>
+                                Fum:
+                              </h5>
+                              <br>
+                              <h6>
+                                {{cliente.Fum}}
+                              </h6>
+                            </div>
+                            <div *ngIf="cliente.Gender === 'Femenino'" class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                              <h5>
+                                Papanicolau:
+                              </h5>
+                              <br>
+                              <h6>
+                                {{cliente.Papsmear}}
+                              </h6>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                              <h5>
+                                Grupo Sanguineo:
+                              </h5>
+                              <br>
+                              <h6>
+                                {{cliente.Bloodtype}}
+                              </h6>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-3">
+                              <h5>
+                                Otros:
+                              </h5>
+                              <br>
+                              <h6>
+                                {{cliente.Others}}
+                              </h6>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading p-2 text-center" role="tab" id="heading5">
+                      <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                          aria-expanded="false" aria-controls="collapse5">
+                          <strong>
+                            Antecentes Personales Patológicos
+                          </strong>
+                          <i class="material-icons">
+                            keyboard_arrow_down
+                          </i>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapse5" class="collapse" role="tabpanel" aria-labelledby="heading5">
+                      <div class="card-body">
+                        <!-- mostrar antecedentes 1 -->
+                        <div class="row">
+                          <div class="col-12 col-md-6 col-lg-4 col-xl-3 p-2" *ngFor="let item of clienteant1elegidos">
+                            <h3>
+                              {{item.antecedentepatologico.Name}}
+                            </h3>
+                          </div>
+                          <div class="col-12 com-md-6 col-lg-4 col xl 3 p-2">
+                            <div class="row">
+                              <div class="col-4 p-2">
+                                <h5>
+                                  Otros:
+                                </h5>
+                              </div>
+                              <div class="col-8 p-2">
+                                <h3>
+                                  {{cliente.Otherspathological}}
+                                </h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="col-12 p-1" *ngFor="let item of historial">
+            <div *ngIf="item.Type === 'procedimiento'" class="historia">
+              <div class="row">
+                <div class="col-12 p-1">
+                  <span class="text-center">
+                    Fecha de Atencion:
+                  </span>
+                  {{item.Appointment}}
+                </div>
+                <div class="col-12 col-lg-4 p-1">
+                  <span>
+                    Referido por:
+                  </span>
+                  {{item.Referred}}
+                </div>
+                <div class="col-12 col-lg-4 p-1">
+                  <span>
+                    Acompañante:
+                  </span>
+                  {{item.Companion}}
+                </div>
+                <div class="col-12 col-lg-4 p-1">
+                  <span>
+                    Parentezco:
+                  </span>
+                  {{item.Relationship}}
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    PA:
+                  </span>
+                  {{item.BloodPressure}}
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    FC:
+                  </span>
+                  {{item.HeartRate}}
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    FR:
+                  </span>
+                  {{item.BreathingFrequency}}
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    T:
+                  </span>
+                  {{item.Temperature}}
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    SO2:
+                  </span>
+                  {{item.Saturation}}
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-12 p-1">
+                  <h2 class="text-center">
+                    Procedimiento aplicado
+                  </h2>
+                  <br>
+                  <h3>
+                    {{item.Reason}}
+                  </h3>
+                </div>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary" (click)="editarhistoria(item.id)">
+                Actualizar
+              </button>
+              <!-- <button type="submit" class="btn btn-primary" (click)="editarhistoria(item.id)">
+                Mas Detalles
+              </button> -->
+            </div>
+            <div *ngIf="item.Type === 'normal'" class="historia">
+              <div class="row">
+                <div class="col-12 p-1">
+                  <span class="text-left">
+                    Fecha de Atencion:
+                  </span>
+                  {{item.Appointment}}
+                </div>
+                <div class="col-12 col-lg-4 p-1">
+                  <span>
+                    Referido por:
+                  </span>
+                  {{item.Referred}}
+                </div>
+                <div class="col-12 col-lg-4 p-1">
+                  <span>
+                    Acompañante:
+                  </span>
+                  {{item.Companion}}
+                </div>
+                <div class="col-12 col-lg-4 p-1">
+                  <span>
+                    Parentezco:
+                  </span>
+                  {{item.Relationship}}
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    PA:
+                  </span>
+                  {{item.BloodPressure}}
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    FC:
+                  </span>
+                  {{item.HeartRate}}
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    FR:
+                  </span>
+                  {{item.BreathingFrequency}}
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    T:
+                  </span>
+                  {{item.Temperature}}
+                </div>
+                <div class="col-4 col-md-3 col-lg-2">
+                  <span>
+                    SO2:
+                  </span>
+                  {{item.Saturation}}
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-12 p-1">
+                  <h2 class="text-center">
+                    EPISODIO ACTUAL
+                  </h2>
+                </div>
+                <div class="col-12 col-lg-4 p-1 text-center">
+                  <span>
+                    TE:
+                  </span>
+                  <br>
+                  {{item.SickTime}}
+                </div>
+                <div class="col-12 col-lg-4 p-1 text-center">
+                  <span>
+                    EA:
+                  </span>
+                  <br>
+                  {{item.CurrentEpisode}}
+                </div>
+                <div class="col-12 col-lg-4 p-1 text-center">
+                  <span>
+                    FI:
+                  </span>
+                  <br>
+                  {{item.StartWay}}
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-12 p-1">
+                  <span>
+                    SS:
+                  </span>
+                  <br>
+                  {{item.SignsandSymptoms}}
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-12 p-1">
+                  <span>
+                    DESCRIPCIÓN DEL PROBLEMA:
+                  </span>
+                  <br>
+                  {{item.DescriptionProblem}}
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-12 p-1">
+                  <span>
+                    EXAMEN FÍSICO:
+                  </span>
+                  <br>
+                  {{item.PhysicalExam}}
+                </div>
+              </div>
+              <hr>
+              <div class="row justify-content-center">
+                <div class="col-12 p-1">
+                  <span>
+                    DIAGNÓSTICO:
+                  </span>
+                  <br>
+                  {{item.Diagnosis}}
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-12 p-1">
+                  <span>
+                    EXAMENES DE LABORATORIO:
+                  </span>
+                  <br>
+                  {{item.LaboratoryExam}}
+                </div>
+              </div>
+              <hr>
+              <br>
+              <button type="submit" class="btn btn-primary" (click)="editarhistoria(item.id)">
+                Actualizar
+              </button>
+              <!-- <button type="submit" class="btn btn-primary" (click)="editarhistoria(item.id)">
+                Mas Detalles
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

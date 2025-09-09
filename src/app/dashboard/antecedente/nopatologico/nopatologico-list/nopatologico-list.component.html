@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="col-12">
+    <button (click)="crear()" type="button" class="btn btn-primary">
+      Crear
+    </button>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">
+          Lista de Antecedentes no Patológicos
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Nombre
+              </th>
+              <th>
+                ...
+              </th>
+              <!-- <th>
+                ...
+              </th> -->
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of antecedentes">
+                <td>
+                  {{item.Name}}
+                </td>
+                <td>
+                <td class="text-primary">
+                  <button (click)="editar(item.id)" type="button" class="btn btn-info">
+                    <span class="material-icons">
+                      edit
+                      </span>
+                  </button>
+                </td>
+                <!-- <td class="text-primary">
+                  <button *ngIf="item.id > 7"  (click)="getrelacionconcita(item.id)"
+                    data-toggle="modal" data-target="#deleteModal"
+                    type="button" class="btn btn-danger">
+                    <span class="material-icons">
+                      delete
+                    </span>
+                  </button>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">
+          Estas seguro(a)?
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div *ngIf="bandera" class="col-12">
+            No es seguro, debido a que en algun historial fue escogido
+          </div>
+          <div *ngIf="!bandera" class="col-12">
+            Es seguro poder eliminar
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          No
+        </button>
+        <button type="button" class="btn btn-primary" (click)="deletedata(codigoelegido)" data-dismiss="modal">
+          Si
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

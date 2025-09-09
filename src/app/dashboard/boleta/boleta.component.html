@@ -1,0 +1,132 @@
+<div class="row">
+  <!--<div class="col-12">
+      Col12
+  <button type="button" class="btn btn-primary">
+      Nueva
+    </button >
+  </div>-->
+  <div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-primary row">
+          <h4 class="card-title col-5">
+            Boleta
+          </h4>
+          <h4 class="card-title col">
+            #123456
+          </h4>
+        </div>
+        <div class="card-body" id="boleta">
+          <div class="col-12">
+            <label class="bmd-label-floating">
+              Datos de la Empresa
+            </label>
+            <div class="row unselectable">
+              <div class="col-10">
+                <label for="colFormLabel" class="col-md-10 col-form-label">Millan Gutierrez Servicios Generales E.I.R.L.</label>
+                <label for="colFormLabel" class="col-md-10 col-form-label">RUC: 20606975946</label>
+                <label for="colFormLabel" class="col-md-10 col-form-label">Razón Social: Jr. Abancay N° 515 Urb. San Carlos Junín - Huancayo - Huancayo</label>
+                <label for="colFormLabel" class="col-md-10 col-form-label">Telf: 999999999</label>
+              </div>
+              <img class="card-img-top col-md-2" src="https://kayserjhamillex.github.io/panel-doctor/assets/img/logo.png" alt="Logo">
+            </div>
+          </div>
+            <div class=col-12>
+              <label class="bmd-label-floating">
+                  Datos del Cliente
+              </label>
+              <!--Formulario Boleta-->
+              <div class="form-group">
+                  <!--DatosBusqueda-->
+                  <div class="row">
+                      <label for="colFormLabel" class="col-md-2 col-form-label">DNI/RUC:</label>
+                      <div class="col-md-4">
+                      <input type="codigocliente" class="form-control" id="colFormLabel">
+                      </div>
+                      <div class="col-md-6">
+                          <button type="button" class="btn btn-secondary">Buscar</button>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <label for="colFormLabel" class="col-md-2 col-form-label">OCUPACIÓN:</label>
+                      <div class="col-md-4">
+                          <input type="ocupacion" class="form-control" id="colFormLabel">
+                      </div>
+                      <label for="colFormLabel" class="col-md-2 col-form-label">DIRECCIÓN:</label>
+                      <div class="col-md-4">
+                        <input type="direccion" class="form-control" id="colFormLabel">
+                      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <label class="bmd-label-floating">
+                Datos del Servicio
+              </label>
+              <div class="row">
+                <div class="col-12 p-1">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class="text-primary text-center">
+                        <th>
+                          Servicio
+                        </th>
+                        <th>
+                          Detalle
+                        </th>
+                        <th>
+                          Precio(S/.)
+                        </th>
+                      </thead>
+                      <tbody>
+                        <td class="col-3">
+                        <!--Tipo de servicio-->
+                            <select class="form-control" aria-label="Default select example">
+                              <option selected>Servicio</option>
+                              <option value="1">Diagnostico</option>
+                              <option value="2">Examenes</option>
+                              <option value="3">Cirugia</option>
+                            </select>
+                        </td>
+                        <td class="col">
+                        <!--Detalle-->
+                            <input type="detalleservicio" class="form-control" id="colFormLabel">
+                        </td>
+                        <td class="col-2">
+                        <!--Precio-->
+                            <input type="detalleservicio" class="form-control" id="colFormLabel">
+                        </td>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row justify-content-end">
+                <button  type="button" class="btn btn-nwrow">
+                  <span class="material-icons">
+                    +
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row justify-content-end">
+                <label for="colFormLabel" class="col-4 col-sm-2 col-form-label">TOTAL:</label>
+                  <div class="col-2">
+                    <!-- Monto total-->
+                    S/.----.--
+                  </div>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-6 col-md-4">
+                <button type="button" class="btn btn-primary">
+                  GENERAR
+                </button>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

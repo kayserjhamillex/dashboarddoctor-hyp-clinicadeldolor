@@ -1,0 +1,239 @@
+<div class="row">
+  <div class="col-12">
+    <button (click)="crear()" type="button" class="btn btn-primary">
+      Crear
+    </button>
+  </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 *ngIf="!bandera" class="card-title">
+          Tipos de Laboratorios
+        </h4>
+        <h4 *ngIf="bandera" class="card-title">
+          Editar Tipo
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div *ngIf="!bandera" class="col-12 p-1">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    Nombre
+                  </th>
+                  <th>
+                    ...
+                  </th>
+                  <th>
+                    ...
+                  </th>
+                  <th>
+                    ...
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of tipos">
+                    <td>
+                      {{item.Name}}
+                    </td>
+                    <td class="text-primary">
+                      <button (click)="ver(item.id)" type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                        <span class="material-icons">
+                          visibility
+                        </span>
+                      </button>
+                    </td>
+                    <td class="text-primary">
+                      <button (click)="edit(item.id)" type="button" class="btn btn-warning">
+                        <span class="material-icons">
+                          edit
+                        </span>
+                      </button>
+                    </td>
+                    <td class="text-primary">
+                      <button (click)="delete(item.id)" type="button" class="btn btn-danger">
+                        <span class="material-icons">
+                          delete
+                        </span>
+                      </button>
+                    </td>
+                    <td class="text-primary">
+                      <button (click)="vitales()" data-toggle="modal" data-target="#funsionesvitales" type="button" class="btn btn-success">
+                        Funciones Vitales
+                      </button>
+                    </td>
+                  </tr>
+              </table>
+            </div>
+          </div>
+          <div *ngIf="bandera" class="col-12 p-1">
+            <form>
+              <div class="row">
+                <div class="col-12 p-1">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">
+                      Nombre
+                    </label>
+                    <input name="tipo.Name"
+                      [(ngModel)]="tipo.Name"
+                      type="text" class="form-control"
+                      required minlength="3"
+                      autofocus tabindex="1"
+                      placeholder=".........">
+                  </div>
+                </div>
+                <div class="col-12 p-1">
+                  <button (click)="updateTipo()" type="submit"
+                    class="btn btn-primary pull-right"
+                    [disabled]="(tipo.Name === '')? true:false">
+                    Actualizar
+                  </button>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Examenes de Laboratorio
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Titulo
+              </th>
+              <th>
+                Detalle
+              </th>
+              <th>
+                Precio
+              </th>
+              <th>
+                ...
+              </th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of laboratorios">
+                <td>
+                  {{item.Name}}
+                </td>
+                <td>
+                  {{item.Detail}}
+                </td>
+                <td>
+                  {{item.Price}}
+                </td>
+                <td class="text-primary">
+                  <button (click)="editar(item.id)" type="button" class="btn btn-info" data-dismiss="modal">
+                    <span class="material-icons">
+                      edit
+                    </span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="crear()">
+          Agregar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="funsionesvitales" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrar Funciones Vitales</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label class="bmd-label-floating">
+          Datos del Cliente
+        </label>
+        <div class="row unselectable">
+          <div class="col-8">
+            <label for="colFormLabel" class="col-md-8 col-form-label">Juan Lara Lopez</label>
+            <label for="colFormLabel" class="col-md-4 col-form-label">Masculino</label>
+            <label for="colFormLabel" class="col-md-4 col-form-label">29 años</label>
+            <label for="colFormLabel" class="col-md-4 col-form-label">O+</label>
+          </div>
+          <div class="col-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
+              <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z"/>
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+            </svg>
+          </div>
+        </div>
+        <form class="p-4">
+          <div class="form-group">
+            <div class="row">
+              <label for="Temperatura" class="col-md-6 col-form-label">Temperatura(C°): </label>
+              <input type="number" class="form-control col-md-4 text-center" id="Temperatura" [defaultValue]="30">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label for="PCardiaca" class="col-md-6 col-form-label">Presión Cardiaca(BPM): </label>
+              <input type="number" class="form-control col-md-4 text-center" id="PCardiaca" [defaultValue]="60">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label for="Oxigenacion" class="col-md-6 col-form-label">Oxigenación(SpO2%): </label>
+              <input type="number" class="form-control col-md-4 text-center" id="Oxigenacion" [defaultValue]="100">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label for="Peso" class="col-md-6 col-form-label">Peso(Kg): </label>
+              <input type="number" class="form-control col-md-4 text-center" id="Peso" [defaultValue]="50">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="row">
+              <label for="Talla" class="col-md-6 col-form-label">Talla(CM): </label>
+              <input type="number" class="form-control col-md-4 text-center" id="Talla" [defaultValue]="150">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Observacion">Observación: </label>
+            <textarea class="form-control" id="Observacion" rows="1"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
